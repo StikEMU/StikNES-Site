@@ -69,9 +69,6 @@
         .dropdown-content li {
             margin: 5px 0;
         }
-        .dropdown-content li span {
-            font-weight: bold;
-        }
         .dropdown h3:hover {
             text-decoration: underline;
         }
@@ -154,9 +151,8 @@
         <section>
             <h2>🕹️ Software Compatibility</h2>
             <div class="dropdown">
-                <h3 onclick="toggleDropdown('softwareCompatibility')">🕹️ Tested Games</h3>
-                <div class="dropdown-content" id="softwareCompatibility">
-                    <h4>🟢 High Compatibility and Performance</h4>
+                <h3 onclick="toggleDropdown('highCompatibility')">🟢 High Compatibility and Performance</h3>
+                <div class="dropdown-content" id="highCompatibility">
                     <ul>
                         <li>Super Mario Bros. 3</li>
                         <li>Contra</li>
@@ -164,11 +160,19 @@
                         <li>Super Tecmo Bowl</li>
                         <li>Chessnovice</li>
                     </ul>
-                    <h4>🟡 Moderate Compatibility</h4>
+                </div>
+            </div>
+            <div class="dropdown">
+                <h3 onclick="toggleDropdown('moderateCompatibility')">🟡 Moderate Compatibility</h3>
+                <div class="dropdown-content" id="moderateCompatibility">
                     <ul>
                         <li>Super Mario Bros. - Game runs at 2x speed.</li>
                     </ul>
-                    <h4>🔴 Low Compatibility</h4>
+                </div>
+            </div>
+            <div class="dropdown">
+                <h3 onclick="toggleDropdown('lowCompatibility')">🔴 Low Compatibility</h3>
+                <div class="dropdown-content" id="lowCompatibility">
                     <ul>
                         <li>Super Mario Bros. + Duck Hunt - Does not boot.</li>
                     </ul>
