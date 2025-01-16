@@ -42,10 +42,35 @@
             margin-bottom: 20px;
             font-weight: bold;
         }
-        section p {
+        .dropdown {
+            border: 1px solid #d2d2d2;
+            border-radius: 8px;
+            background-color: #f8f8f8;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .dropdown h3 {
+            font-size: 1.2rem;
+            margin: 0;
+            cursor: pointer;
+        }
+        .dropdown-content {
+            margin-top: 10px;
+            padding: 0 10px;
+            display: none;
             font-size: 1rem;
             line-height: 1.6;
             color: #2d2d2d;
+        }
+        .dropdown-content ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .dropdown-content li {
+            margin: 5px 0;
+        }
+        .dropdown h3:hover {
+            text-decoration: underline;
         }
         a {
             color: #000000;
@@ -65,6 +90,12 @@
             color: #5c5c5c;
         }
     </style>
+    <script>
+        function toggleDropdown(contentId) {
+            const content = document.getElementById(contentId);
+            content.style.display = content.style.display === "block" ? "none" : "block";
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -83,23 +114,56 @@
         </section>
         <section>
             <h2>🔍 Compatibility</h2>
-            <p>Learn more about supported devices and requirements in the <a href="COMPATIBILITY.md">Compatibility</a> section.</p>
+            <div class="dropdown">
+                <h3 onclick="toggleDropdown('devices')">📱 Supported Devices</h3>
+                <div class="dropdown-content" id="devices">
+                    <ul>
+                        <li>iPhone SE (2nd generation) and newer</li>
+                        <li>iPhone 8 and newer</li>
+                        <li>iPad (5th generation) and newer</li>
+                        <li>iPad Air (3rd generation) and newer</li>
+                        <li>iPad Pro (all models)</li>
+                        <li>iPad Mini (5th generation) and newer</li>
+                    </ul>
+                </div>
+                <h3 onclick="toggleDropdown('requirements')">🛠️ Operating System Requirements</h3>
+                <div class="dropdown-content" id="requirements">
+                    <p>StikNES requires iOS 16.0 or later.</p>
+                </div>
+                <h3 onclick="toggleDropdown('limitations')">🚫 Known Limitations</h3>
+                <div class="dropdown-content" id="limitations">
+                    <ul>
+                        <li>Older devices may experience performance issues and require more testing.</li>
+                        <li>Emulation accuracy may vary depending on the game.</li>
+                        <li>AirPlay support is planned for future releases but is not currently available.</li>
+                    </ul>
+                </div>
+                <h3 onclick="toggleDropdown('controllers')">🎮 Controller Compatibility</h3>
+                <div class="dropdown-content" id="controllers">
+                    <ul>
+                        <li>Xbox Wireless Controller (Bluetooth-enabled)</li>
+                        <li>PlayStation DualShock 4</li>
+                        <li>PlayStation DualSense</li>
+                        <li>Backbone</li>
+                        <li>MFi-certified controllers</li>
+                    </ul>
+                </div>
+            </div>
         </section>
-        <!--<section>
+        <section>
             <h2>🔗 GitHub</h2>
             <p>Find the project source code and contributions on the <a href="https://github.com/YourRepoHere" target="_blank">GitHub Repository</a>.</p>
-        </section>-->
-    </main>
-    <footer>
-        <p>
-            Disclaimer: StikNES is not affiliated with Nintendo. All trademarks and game console names are the property of Nintendo Co., Ltd.
-        </p>
-        <p>
-            This site is licensed under the <a href="https://github.com/StikEMU/StikNES-Site/blob/main/LICENSE" target="_blank">MIT License</a>.
-        </p>
-        <p>
-            <a href="https://github.com/StikEMU/StikNES-Site" target="_blank">Site GitHub Repository</a>
-        </p>
-    </footer>
-</body>
+        </section>
+        <footer>
+            <p>
+                Disclaimer: StikNES is not affiliated with Nintendo. All trademarks and game console names are the property of Nintendo Co., Ltd.
+            </p>
+            <p>
+                This site and project are licensed under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a>.
+            </p>
+            <p>
+                <a href="https://github.com/YourRepoHere" target="_blank">GitHub Repository</a>
+            </p>
+        </footer>
+    </body>
 </html>
