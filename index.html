@@ -69,6 +69,10 @@
         .dropdown-content li {
             margin: 5px 0;
         }
+        .dropdown-content li.completed {
+            text-decoration: line-through;
+            color: #757575;
+        }
         .dropdown h3:hover {
             text-decoration: underline;
         }
@@ -110,42 +114,23 @@
         </section>
         <section>
             <h2>📖 Roadmap</h2>
-            <p>Stay up-to-date with future developments in the <a href="ROADMAP.md">Roadmap</a>.</p>
-        </section>
-        <section>
-            <h2>🔍 Compatibility</h2>
             <div class="dropdown">
-                <h3 onclick="toggleDropdown('devices')">📱 Supported Devices</h3>
-                <div class="dropdown-content" id="devices">
+                <h3 onclick="toggleDropdown('v2Goals')">🎯 Version 2.0.0 Goals</h3>
+                <div class="dropdown-content" id="v2Goals">
                     <ul>
-                        <li>iPhone SE (2nd generation) and newer</li>
-                        <li>iPhone 8 and newer</li>
-                        <li>iPad (5th generation) and newer</li>
-                        <li>iPad Air (3rd generation) and newer</li>
-                        <li>iPad Pro (all models)</li>
-                        <li>iPad Mini (5th generation) and newer</li>
+                        <li class="completed">Fix B button functionality to improve gameplay accuracy.</li>
+                        <li class="completed">Add controller support for a more authentic gaming experience.</li>
+                        <li>Fix the server bug by making it restart every time a ROM is loaded.</li>
+                        <li>Perform extensive testing to ensure stability and reliability.</li>
                     </ul>
                 </div>
-                <h3 onclick="toggleDropdown('requirements')">🛠️ Operating System Requirements</h3>
-                <div class="dropdown-content" id="requirements">
-                    <p>StikNES requires iOS 16.0 or later.</p>
-                </div>
-                <h3 onclick="toggleDropdown('limitations')">🚫 Known Limitations</h3>
-                <div class="dropdown-content" id="limitations">
+                <h3 onclick="toggleDropdown('postPlans')">🚀 Post 2.0.0 Plans</h3>
+                <div class="dropdown-content" id="postPlans">
                     <ul>
-                        <li>Older devices may experience performance issues and require more testing.</li>
-                        <li>Emulation accuracy may vary depending on the game.</li>
-                        <li>AirPlay support is planned for future releases but is not currently available.</li>
-                    </ul>
-                </div>
-                <h3 onclick="toggleDropdown('controllers')">🎮 Controller Compatibility</h3>
-                <div class="dropdown-content" id="controllers">
-                    <ul>
-                        <li>Xbox Wireless Controller (Bluetooth-enabled)</li>
-                        <li>PlayStation DualShock 4</li>
-                        <li>PlayStation DualSense</li>
-                        <li>Backbone</li>
-                        <li>MFi-certified controllers</li>
+                        <li>Introduce delta skins for enhanced customization options.</li>
+                        <li>Enable AirPlay support for a seamless big-screen gaming experience.</li>
+                        <li>Rename the app to <strong>StikEMU</strong> and expand functionality to include Flash emulation.</li>
+                        <li>Enhance security measures by improving the middleware.</li>
                     </ul>
                 </div>
             </div>
@@ -165,5 +150,6 @@
                 <a href="https://github.com/YourRepoHere" target="_blank">GitHub Repository</a>
             </p>
         </footer>
-    </body>
+    </main>
+</body>
 </html>
