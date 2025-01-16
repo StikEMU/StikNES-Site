@@ -76,6 +76,26 @@
         .dropdown h3:hover {
             text-decoration: underline;
         }
+        .media {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .media iframe {
+            width: 100%;
+            max-width: 700px;
+            height: 400px;
+            margin-bottom: 20px;
+            border: none;
+        }
+        .media img {
+            width: 100%;
+            max-width: 200px;
+            margin: 10px;
+            border-radius: 8px;
+            border: 1px solid #d2d2d2;
+        }
         a {
             color: #000000;
             text-decoration: none;
@@ -108,30 +128,13 @@
     </header>
     <main>
         <section>
-            <h2>✨ Features</h2>
-            <p><strong>SwiftUI Interface:</strong> Clean and modern design for an effortless user experience.</p>
-            <p><strong>NES Emulation:</strong> Powered by the <a href="https://github.com/takahirox/nes-rust" target="_blank">nes-rust</a> library for accurate and reliable emulation.</p>
-        </section>
-        <section>
-            <h2>📖 Roadmap</h2>
-            <div class="dropdown">
-                <h3 onclick="toggleDropdown('v2Goals')">🎯 Version 2.0.0 Goals</h3>
-                <div class="dropdown-content" id="v2Goals">
-                    <ul>
-                        <li class="completed">Fix B button functionality to improve gameplay accuracy.</li>
-                        <li class="completed">Add controller support for a more authentic gaming experience.</li>
-                        <li>Fix the server bug by making it restart every time a ROM is loaded.</li>
-                        <li>Perform extensive testing to ensure stability and reliability.</li>
-                    </ul>
-                </div>
-                <h3 onclick="toggleDropdown('postPlans')">🚀 Post 2.0.0 Plans</h3>
-                <div class="dropdown-content" id="postPlans">
-                    <ul>
-                        <li>Introduce delta skins for enhanced customization options.</li>
-                        <li>Enable AirPlay support for a seamless big-screen gaming experience.</li>
-                        <li>Rename the app to <strong>StikEMU</strong> and expand functionality to include Flash emulation.</li>
-                        <li>Enhance security measures by improving the middleware.</li>
-                    </ul>
+            <h2>🎥 App Trailer</h2>
+            <div class="media">
+                <iframe src="https://www.youtube.com/embed/your-video-id" allowfullscreen></iframe>
+                <div>
+                    <img src="screenshot1.png" alt="Screenshot 1">
+                    <img src="screenshot2.png" alt="Screenshot 2">
+                    <img src="screenshot3.png" alt="Screenshot 3">
                 </div>
             </div>
         </section>
@@ -161,14 +164,27 @@
                         <li>AirPlay support is planned for future releases but is not currently available.</li>
                     </ul>
                 </div>
-                <h3 onclick="toggleDropdown('controllers')">🎮 Controller Compatibility</h3>
-                <div class="dropdown-content" id="controllers">
+            </div>
+        </section>
+        <section>
+            <h2>📖 Roadmap</h2>
+            <div class="dropdown">
+                <h3 onclick="toggleDropdown('v2Goals')">🎯 Version 2.0.0 Goals</h3>
+                <div class="dropdown-content" id="v2Goals">
                     <ul>
-                        <li>Xbox Wireless Controller (Bluetooth-enabled)</li>
-                        <li>PlayStation DualShock 4</li>
-                        <li>PlayStation DualSense</li>
-                        <li>Backbone</li>
-                        <li>MFi-certified controllers</li>
+                        <li class="completed">Fix B button functionality to improve gameplay accuracy.</li>
+                        <li class="completed">Add controller support for a more authentic gaming experience.</li>
+                        <li>Fix the server bug by making it restart every time a ROM is loaded.</li>
+                        <li>Perform extensive testing to ensure stability and reliability.</li>
+                    </ul>
+                </div>
+                <h3 onclick="toggleDropdown('postPlans')">🚀 Post 2.0.0 Plans</h3>
+                <div class="dropdown-content" id="postPlans">
+                    <ul>
+                        <li>Introduce delta skins for enhanced customization options.</li>
+                        <li>Enable AirPlay support for a seamless big-screen gaming experience.</li>
+                        <li>Rename the app to <strong>StikEMU</strong> and expand functionality to include Flash emulation.</li>
+                        <li>Enhance security measures by improving the middleware.</li>
                     </ul>
                 </div>
             </div>
