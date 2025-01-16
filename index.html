@@ -82,6 +82,11 @@
             height: 500px;
             border: none;
         }
+        #countdown {
+            font-size: 1.5rem;
+            color: #007aff;
+            margin-top: 10px;
+        }
         footer {
             text-align: center;
             padding: 20px 0;
@@ -96,6 +101,26 @@
             const content = document.getElementById(contentId);
             content.style.display = content.style.display === "block" ? "none" : "block";
         }
+
+        function updateCountdown() {
+            const releaseDate = new Date("2025-01-24T00:00:00").getTime();
+            const now = new Date().getTime();
+            const distance = releaseDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").textContent = 
+                `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            if (distance < 0) {
+                document.getElementById("countdown").textContent = "Available Now!";
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
     </script>
 </head>
 <body>
@@ -128,6 +153,17 @@
             </div>
         </section>
         <section>
+            <h2>📱 Download on the App Store</h2>
+            <div class="dropdown">
+                <h3 onclick="toggleDropdown('download')">📲 Learn More</h3>
+                <div class="dropdown-content" id="download">
+                    <p>StikNES will be available on the App Store starting <strong>January 24, 2025</strong>.</p>
+                    <p>Countdown to release:</p>
+                    <div id="countdown">Loading...</div>
+                </div>
+            </div>
+        </section>
+        <section>
             <h2>🔍 Device Compatibility & Requirements</h2>
             <div class="dropdown">
                 <h3 onclick="toggleDropdown('devices')">📱 Supported Devices</h3>
@@ -153,36 +189,10 @@
                         <li>AirPlay support is planned for future releases but is not currently available.</li>
                     </ul>
                 </div>
-            </div>
-        </section>
-        <section>
-            <h2>🕹️ Software Compatibility</h2>
-            <div class="dropdown">
-                <h3 onclick="toggleDropdown('highCompatibility')">🟢 High Compatibility and Performance</h3>
-                <div class="dropdown-content" id="highCompatibility">
-                    <ul>
-                        <li>Super Mario Bros. 3</li>
-                        <li>Contra</li>
-                        <li>Tetris</li>
-                        <li>Super Tecmo Bowl</li>
-                        <li>Chessnovice</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="dropdown">
-                <h3 onclick="toggleDropdown('moderateCompatibility')">🟡 Moderate Compatibility</h3>
-                <div class="dropdown-content" id="moderateCompatibility">
-                    <ul>
-                        <li>Super Mario Bros. - Game runs at 2x speed.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="dropdown">
-                <h3 onclick="toggleDropdown('lowCompatibility')">🔴 Low Compatibility</h3>
-                <div class="dropdown-content" id="lowCompatibility">
-                    <ul>
-                        <li>Super Mario Bros. + Duck Hunt - Does not boot.</li>
-                    </ul>
+                <h3 onclick="toggleDropdown('systemSupport')">🕹️ Current System Support</h3>
+                <div class="dropdown-content" id="systemSupport">
+                    <p>Currently Supported: <strong>NES</strong></p>
+                    <p>Coming Soon: <strong>Flash</strong></p>
                 </div>
             </div>
         </section>
