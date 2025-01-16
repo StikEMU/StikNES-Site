@@ -62,34 +62,7 @@
             line-height: 1.6;
             color: #2d2d2d;
         }
-        .dropdown-content ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .dropdown-content li {
-            margin: 5px 0;
-        }
-        .dropdown-content li.completed {
-            text-decoration: line-through;
-            color: #757575;
-        }
-        .dropdown h3:hover {
-            text-decoration: underline;
-        }
-        .media {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-        }
-        .media iframe {
-            width: 100%;
-            max-width: 700px;
-            height: 400px;
-            margin-bottom: 20px;
-            border: none;
-        }
-        .media img {
+        .dropdown-content img {
             width: 100%;
             max-width: 200px;
             margin: 10px;
@@ -131,10 +104,13 @@
             <h2>🎥 App Trailer</h2>
             <div class="media">
                 <iframe src="https://www.youtube.com/embed/your-video-id" allowfullscreen></iframe>
-                <div>
-                    <img src="screenshot1.png" alt="Screenshot 1">
-                    <img src="screenshot2.png" alt="Screenshot 2">
-                    <img src="screenshot3.png" alt="Screenshot 3">
+                <div class="dropdown">
+                    <h3 onclick="toggleDropdown('screenshots')">🖼️ View Screenshots</h3>
+                    <div class="dropdown-content" id="screenshots">
+                        <img src="screenshot1.png" alt="Screenshot 1">
+                        <img src="screenshot2.png" alt="Screenshot 2">
+                        <img src="screenshot3.png" alt="Screenshot 3">
+                    </div>
                 </div>
             </div>
         </section>
