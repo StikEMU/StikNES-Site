@@ -62,15 +62,12 @@
             line-height: 1.6;
             color: #2d2d2d;
         }
-        .dropdown-content ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .dropdown-content li {
-            margin: 5px 0;
-        }
-        .dropdown h3:hover {
-            text-decoration: underline;
+        .dropdown-content img {
+            width: 100%;
+            max-width: 200px;
+            margin: 10px;
+            border-radius: 8px;
+            border: 1px solid #d2d2d2;
         }
         a {
             color: #000000;
@@ -110,13 +107,16 @@
                     src="https://www.youtube.com/embed/your-video-id" 
                     allowfullscreen 
                     title="App Trailer"></iframe>
-                <div class="dropdown">
-                    <h3 onclick="toggleDropdown('screenshots')">🖼️ View Screenshots</h3>
-                    <div class="dropdown-content" id="screenshots">
-                        <img src="screenshot1.png" alt="Screenshot 1">
-                        <img src="screenshot2.png" alt="Screenshot 2">
-                        <img src="screenshot3.png" alt="Screenshot 3">
-                    </div>
+            </div>
+        </section>
+        <section>
+            <h2>🖼️ Screenshots</h2>
+            <div class="dropdown">
+                <h3 onclick="toggleDropdown('screenshots')">🖼️ View Screenshots</h3>
+                <div class="dropdown-content" id="screenshots">
+                    <img src="screenshot1.png" alt="Screenshot 1">
+                    <img src="screenshot2.png" alt="Screenshot 2">
+                    <img src="screenshot3.png" alt="Screenshot 3">
                 </div>
             </div>
         </section>
