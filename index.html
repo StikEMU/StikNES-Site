@@ -69,6 +69,20 @@
             border-radius: 8px;
             border: 1px solid #d2d2d2;
         }
+        .dropdown-content ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .dropdown-content li {
+            margin: 5px 0;
+        }
+        .dropdown-content li.completed {
+            text-decoration: line-through;
+            color: #757575;
+        }
+        .dropdown h3:hover {
+            text-decoration: underline;
+        }
         a {
             color: #000000;
             text-decoration: none;
@@ -103,7 +117,10 @@
         <section>
             <h2>🎥 App Trailer</h2>
             <div class="media">
-                <iframe src="https://www.youtube.com/embed/your-video-id" allowfullscreen></iframe>
+                <iframe 
+                    src="https://www.youtube.com/embed/your-video-id" 
+                    allowfullscreen 
+                    title="App Trailer"></iframe>
                 <div class="dropdown">
                     <h3 onclick="toggleDropdown('screenshots')">🖼️ View Screenshots</h3>
                     <div class="dropdown-content" id="screenshots">
@@ -115,7 +132,7 @@
             </div>
         </section>
         <section>
-            <h2>🔍 Compatibility</h2>
+            <h2>🔍 Device Compatibility & Requirements</h2>
             <div class="dropdown">
                 <h3 onclick="toggleDropdown('devices')">📱 Supported Devices</h3>
                 <div class="dropdown-content" id="devices">
