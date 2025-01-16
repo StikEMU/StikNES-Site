@@ -76,10 +76,10 @@
         .dropdown-content a:hover {
             text-decoration: underline;
         }
-        iframe {
+        video {
             width: 100%;
             max-width: 900px;
-            height: 500px;
+            height: auto;
             border: none;
         }
         #countdown {
@@ -134,10 +134,10 @@
             <div class="dropdown">
                 <h3 onclick="toggleDropdown('trailer')">🎬 Watch Trailer</h3>
                 <div class="dropdown-content" id="trailer">
-                    <iframe 
-                        src="https://www.youtube.com/embed/your-video-id" 
-                        allowfullscreen 
-                        title="App Trailer"></iframe>
+                    <video controls>
+                        <source src="trailer.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
         </section>
