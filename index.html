@@ -62,13 +62,6 @@
             line-height: 1.6;
             color: #2d2d2d;
         }
-        .dropdown-content img {
-            width: 100%;
-            max-width: 200px;
-            margin: 10px;
-            border-radius: 8px;
-            border: 1px solid #d2d2d2;
-        }
         .dropdown-content ul {
             list-style-type: none;
             padding: 0;
@@ -76,9 +69,8 @@
         .dropdown-content li {
             margin: 5px 0;
         }
-        .dropdown-content li.completed {
-            text-decoration: line-through;
-            color: #757575;
+        .dropdown-content li span {
+            font-weight: bold;
         }
         .dropdown h3:hover {
             text-decoration: underline;
@@ -155,6 +147,30 @@
                         <li>Older devices may experience performance issues and require more testing.</li>
                         <li>Emulation accuracy may vary depending on the game.</li>
                         <li>AirPlay support is planned for future releases but is not currently available.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>🕹️ Software Compatibility</h2>
+            <div class="dropdown">
+                <h3 onclick="toggleDropdown('softwareCompatibility')">🕹️ Tested Games</h3>
+                <div class="dropdown-content" id="softwareCompatibility">
+                    <h4>🟢 High Compatibility and Performance</h4>
+                    <ul>
+                        <li>Super Mario Bros. 3</li>
+                        <li>Contra</li>
+                        <li>Tetris</li>
+                        <li>Super Tecmo Bowl</li>
+                        <li>Chessnovice</li>
+                    </ul>
+                    <h4>🟡 Moderate Compatibility</h4>
+                    <ul>
+                        <li>Super Mario Bros. - Game runs at 2x speed.</li>
+                    </ul>
+                    <h4>🔴 Low Compatibility</h4>
+                    <ul>
+                        <li>Super Mario Bros. + Duck Hunt - Does not boot.</li>
                     </ul>
                 </div>
             </div>
