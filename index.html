@@ -116,13 +116,15 @@ main {
 }
 
 section {
-    margin-bottom: 40px;
+    margin-bottom: 3rem;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 section h2 {
+    display: flex;
+    align-items: center;
     font-size: 1.8rem;
     color: var(--text-primary);
     margin-bottom: 20px;
@@ -153,7 +155,7 @@ section h2:hover {
 .dropdown h3 {
     font-size: 1.2rem;
     margin: 0;
-    padding: 20px;
+    padding: 1.3rem 1.4rem;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
@@ -161,6 +163,17 @@ section h2:hover {
     gap: 12px;
     position: relative;
     overflow: hidden;
+    background: var(--surface-dark);
+    
+    
+}
+.dropdown h3 i {
+    flex: 0 0 26px;
+    font-size: 1.3rem;
+    margin-right: 0.1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .dropdown h3::before {
@@ -203,6 +216,9 @@ section h2:hover {
     padding-left: 24px;
     position: relative;
     transition: transform 0.2s ease;
+    line-height: 1.5;
+    display: flex;
+    align-items: flex-start;
 }
 
 .dropdown-content li:hover {
@@ -267,7 +283,7 @@ section h2:hover {
 .screenshot-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    gap: 1.5rem;
     padding: 10px 0;
 }
 
@@ -369,6 +385,7 @@ h2 {
     font-weight: 500;
 }
 
+
 p, li {
     font-weight: 400;
 }
@@ -380,7 +397,6 @@ p, li {
 .ri-customer-service-2-line,
 .ri-app-store-line,
 .ri-smartphone-line,
-.ri-gamepad-line,
 .ri-github-fill {
     margin-right: 8px;
     transition: transform 0.3s ease;
@@ -534,12 +550,267 @@ section h2:hover i {
     filter: brightness(1.2);
     transform: scale(1.1);
     transition: all 0.3s ease;
+    
 }
 
 
 section h2 i {
     display: inline-block;
     transition: all 0.3s ease;
+    flex: 0 0 24px;
+    font-size: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 32px;  
+    font-size: 1.9rem;
+    margin-right: 0.75rem;
+}
+
+.roadmap-section {
+    background: var(--surface-dark);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 8px 32px var(--shadow-color);
+    overflow: hidden;
+}
+
+
+.roadmap-toggle i {
+    flex: 0 0 24px;
+    font-size: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.roadmap-section h2 {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    position: relative;
+    font-size: 2rem;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+    border-bottom: none;
+}
+
+.roadmap-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background: var(--accent-gradient);
+    border-radius: 3px;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+    
+}
+
+.roadmap-section h2 i {
+    background: linear-gradient(135deg, #6366f1, #818cf8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-right: 0.5rem;
+    transition: transform 0.3s ease;
+    
+}
+
+.roadmap-section h2:hover i {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.ri-calendar-line {
+    margin-right: 5px;
+}
+
+
+.roadmap-toggle {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem;
+    font-size: 2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.roadmap-toggle:hover {
+    transform: translateY(-2px);
+    text-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+.roadmap-toggle i {
+    transition: transform 0.3s ease;
+}
+
+.roadmap-toggle.collapsed i {
+    transform: rotate(-90deg);
+}
+
+.roadmap-toggle .ri-arrow-down-s-line {
+    position: absolute;
+    right: 1rem;
+    font-size: 1.5rem;
+}
+
+.roadmap-toggle .ri-road-map-line {
+    font-size: 2rem;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 2px 4px rgba(99, 102, 241, 0.3));
+    animation: floatIcon 3s ease-in-out infinite;
+}
+
+
+.roadmap-timeline {
+    position: relative;
+    padding: 2rem 0;
+    transform-origin: top;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.roadmap-timeline.collapsed {
+    transform: scaleY(0);
+    height: 0;
+    padding: 0;
+    opacity: 0;
+}
+
+.roadmap-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: var(--accent-gradient);
+    border-radius: 1px;
+}
+
+
+.roadmap-item {
+    position: relative;
+    padding-left: 2.5rem;
+    margin-bottom: 2rem;
+    animation: slideIn 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+.roadmap-item:last-child {
+    margin-bottom: 0;
+}
+
+.roadmap-item::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+
+.roadmap-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.roadmap-icon {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 12px;
+    background: var(--surface-dark);
+    color: var(--primary-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.ri-time-line {
+    margin-right: 5px;
+}
+
+.roadmap-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.roadmap-content {
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-left: 0.5rem;
+}
+
+.roadmap-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.roadmap-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    color: var(--text-secondary);
+}
+
+.roadmap-list li i {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.roadmap-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.875rem;
+    margin-left: auto;
+    background: rgba(99, 102, 241, 0.2);
+    color: var(--primary-color);
+}
+
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+
+@keyframes floatIcon {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
 }
     </style>
     <script>
@@ -595,6 +866,28 @@ section h2 i {
 
             sections.forEach(section => observer.observe(section));
         });
+
+        document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.querySelector('.roadmap-toggle');
+    const timeline = document.querySelector('.roadmap-timeline');
+    const arrowIcon = toggleButton.querySelector('.ri-arrow-down-s-line');
+    
+    toggleButton.addEventListener('click', function() {
+        timeline.classList.toggle('collapsed');
+        toggleButton.classList.toggle('collapsed');
+        
+        
+        const isCollapsed = timeline.classList.contains('collapsed');
+        localStorage.setItem('roadmapCollapsed', isCollapsed);
+    });
+    
+    
+    const savedState = localStorage.getItem('roadmapCollapsed') === 'true';
+    if (savedState) {
+        timeline.classList.add('collapsed');
+        toggleButton.classList.add('collapsed');
+    }
+});
     </script>
 </head>
 <body>
@@ -743,30 +1036,85 @@ section h2 i {
             </div>
         </section>
         <section>
-            <h2>📖 Roadmap</h2>
-            <div class="dropdown">
-                <h3 onclick="toggleDropdown('v2Goals')">🎯 Upcoming Features in Version 2.0.0 that still need to be implemented.</h3>
-                <div class="dropdown-content" id="v2Goals">
-                    <ul>
-                        <li>Introduce delta skins for enhanced customization options.</li>
-                        <li>Enable AirPlay support for a seamless big-screen gaming experience.</li>
-                        <li>Enhance security measures by improving the middleware.</li>
-                    </ul>
+            <section>
+                <h2><i class="ri-github-fill"></i> GitHub</h2>
+                <div class="dropdown">
+                    <h3 onclick="toggleDropdown('githubLinks')"><i class="ri-links-line"></i> GitHub Links</h3>
+                    <div class="dropdown-content" id="githubLinks">
+                        <p>The source code will be available when the app relaunches on <strong>March 1st, 2025</strong>.</p>
+                        <ul>
+                            <li><a href="#" target="_blank">Source Code</a></li>
+                            <li><a href="#" target="_blank">Submit a Bug</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </section>
-        <section>
-            <h2><i class="ri-github-fill"></i> GitHub</h2>
-            <div class="dropdown">
-                <h3 onclick="toggleDropdown('githubLinks')"><i class="ri-links-line"></i> GitHub Links</h3>
-                <div class="dropdown-content" id="githubLinks">
-                    <p>The source code will be available when the app relaunches on <strong>March 1st, 2025</strong>.</p>
-                    <ul>
-                        <li><a href="#" target="_blank">Source Code</a></li>
-                        <li><a href="#" target="_blank">Submit a Bug</a></li>
-                    </ul>
+            </section>
+        
+            <section>
+                <div class="roadmap-section">
+                    <h2>
+                        <button class="roadmap-toggle">
+                            <i class="ri-road-map-line"></i>
+                            Development Roadmap
+                            <i class="ri-arrow-down-s-line" style="margin-left: auto;"></i>
+                        </button>
+                    </h2>
+                    <div class="roadmap-timeline">
+                        <div class="roadmap-item">
+                            <div class="roadmap-header">
+                                <i class="ri-rocket-line roadmap-icon"></i>
+                                <h3 class="roadmap-title">Version 2.0.0 Features</h3>
+                                <span class="roadmap-status">
+                                    <i class="ri-time-line"></i>
+                                    <span>In Progress</span>
+                                </span>
+                            </div>
+                            <div class="roadmap-content">
+                                <ul class="roadmap-list">
+                                    <li>
+                                        <i class="ri-brush-line"></i>
+                                        <span>Custom delta skins for enhanced visual customization</span>
+                                    </li>
+                                    <li>
+                                        <i class="ri-broadcast-line"></i>
+                                        <span>AirPlay support for big-screen gaming experience</span>
+                                    </li>
+                                    <li>
+                                        <i class="ri-shield-check-line"></i>
+                                        <span>Enhanced security measures and middleware improvements</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="roadmap-item">
+                            <div class="roadmap-header">
+                                <i class="ri-flashlight-line roadmap-icon"></i>
+                                <h3 class="roadmap-title">Future Enhancements</h3>
+                                <span class="roadmap-status">
+                                    <i class="ri-calendar-line"></i>
+                                    <span>Future</span>
+                                </span>
+                            </div>
+                            <div class="roadmap-content">
+                                <ul class="roadmap-list">
+                                    <li>
+                                        <i class="ri-gamepad-line"></i>
+                                        <span>Additional system compatibility</span>
+                                    </li>
+                                    <li>
+                                        <i class="ri-cloud-line"></i>
+                                        <span>Cloud save synchronization</span>
+                                    </li>
+                                    <li>
+                                        <i class="ri-team-line"></i>
+                                        <span>Multiplayer support</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
         </section>
 
         <footer>
