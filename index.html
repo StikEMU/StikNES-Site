@@ -867,27 +867,24 @@ section h2 i {
             sections.forEach(section => observer.observe(section));
         });
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
     const toggleButton = document.querySelector('.roadmap-toggle');
     const timeline = document.querySelector('.roadmap-timeline');
-    const arrowIcon = toggleButton.querySelector('.ri-arrow-down-s-line');
-    
-    toggleButton.addEventListener('click', function() {
-        timeline.classList.toggle('collapsed');
+
+
+    timeline.classList.add('collapsed');
+    toggleButton.classList.add('collapsed');
+
+   
+    toggleButton.addEventListener('click', function () {
+        const currentlyCollapsed = timeline.classList.toggle('collapsed');
         toggleButton.classList.toggle('collapsed');
-        
-        
-        const isCollapsed = timeline.classList.contains('collapsed');
-        localStorage.setItem('roadmapCollapsed', isCollapsed);
+
+      
+        localStorage.setItem('roadmapCollapsed', currentlyCollapsed);
     });
-    
-    
-    const savedState = localStorage.getItem('roadmapCollapsed') === 'true';
-    if (savedState) {
-        timeline.classList.add('collapsed');
-        toggleButton.classList.add('collapsed');
-    }
 });
+
     </script>
 </head>
 <body>
