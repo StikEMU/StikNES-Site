@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
     <title>StikNES - SwiftUI NES Emulator</title>
     <style>
     :root {
@@ -16,6 +17,8 @@
     --accent-gradient: linear-gradient(135deg, #6366f1, #3b82f6);
     --hover-gradient: linear-gradient(135deg, #818cf8, #60a5fa);
     --shadow-color: rgba(30, 41, 59, 0.5);
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
 }
 
 body {
@@ -25,6 +28,7 @@ body {
     background-color: var(--background-dark);
     color: var(--text-primary);
     line-height: 1.6;
+    font-family: var(--font-body);
 }
 
 header {
@@ -311,7 +315,7 @@ footer {
         gap: 1rem;
     }
 
-    .logo {
+.logo {
         width: 50px;
         height: 50px;
         border-radius: 50%;
@@ -319,8 +323,198 @@ footer {
         animation: rotateLogo 20s linear infinite, glowPulse 2s ease-in-out infinite alternate;
         border: 2px solid var(--primary-color);
         box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
-    }
+}
 
+h1, h2, h3, .dropdown h3 {
+    font-family: var(--font-heading);
+
+}
+
+
+h1 {
+    font-weight: 700;
+}
+
+h2 {
+    font-weight: 600;
+}
+
+.dropdown h3 {
+    font-weight: 500;
+}
+
+p, li {
+    font-weight: 400;
+}
+
+
+.ri-movie-2-line,
+.ri-image-2-line,
+.ri-shield-keyhole-line,
+.ri-customer-service-2-line,
+.ri-app-store-line,
+.ri-smartphone-line,
+.ri-gamepad-line,
+.ri-github-fill {
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+}
+
+h2:hover i,
+h3:hover i {
+    transform: scale(1.1);
+}
+
+.ri-play-circle-line {
+    color: #10b981; 
+}
+
+.ri-gallery-line {
+    color: #6366f1;
+}
+
+.ri-lock-line {
+    color: #8b5cf6; 
+}
+
+.ri-question-line {
+    color: #f59e0b; 
+}
+
+.ri-information-line {
+    color: #3b82f6; 
+}
+
+.ri-smartphone-line {
+    color: #ec4899; 
+}
+
+.ri-settings-3-line {
+    color: #14b8a6; 
+}
+
+.ri-error-warning-line {
+    color: #f59e0b; 
+}
+
+.ri-gamepad-line {
+    color: #6366f1; 
+}
+
+.ri-github-fill {
+    color: #6b7280;
+}
+
+.ri-links-line {
+    color: #3b82f6; 
+}
+
+
+.ri-check-double-line {
+    background: linear-gradient(135deg, #34d399, #10b981);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.ri-error-warning-line {
+    background: linear-gradient(135deg, #fcd34d, #f59e0b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.ri-close-circle-line {
+    background: linear-gradient(135deg, #fb7185, #ef4444);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+
+.dropdown h3:hover i {
+    transform: scale(1.2);
+    filter: brightness(1.2);
+}
+
+.ri-play-circle-line,
+.ri-gamepad-line,
+.ri-app-store-line {
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+.dropdown h3:hover i {
+    filter: drop-shadow(0 0 5px currentColor);
+}
+
+.ri-movie-2-line {
+    background: linear-gradient(135deg, #ef4444, #f87171);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.ri-image-2-line {
+    background: linear-gradient(135deg, #a5f63b, #60a5fa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.ri-shield-keyhole-line {
+    background: linear-gradient(135deg, #10b981, #34d399);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.ri-customer-service-2-line {
+    background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.ri-app-store-line {
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.ri-device-line {
+    background: linear-gradient(135deg, #ec4899, #f472b6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.ri-gamepad-line {
+    background: linear-gradient(135deg, #6366f1, #818cf8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.ri-github-fill {
+    background: linear-gradient(135deg, #4b5563, #6b7280);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+
+section h2:hover i {
+    filter: brightness(1.2);
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+
+section h2 i {
+    display: inline-block;
+    transition: all 0.3s ease;
+}
     </style>
     <script>
         function toggleDropdown(contentId) {
@@ -387,9 +581,9 @@ footer {
     </header>
     <main>
         <section>
-            <h2>🎥 App Trailer</h2>
+            <h2><i class="ri-movie-2-line"></i> App Trailer</h2>
             <div class="dropdown">
-                <h3 onclick="toggleDropdown('trailer')">🎬 Watch Trailer</h3>
+                <h3 onclick="toggleDropdown('trailer')"><i class="ri-play-circle-line"></i> Watch Trailer</h3>
                 <div class="dropdown-content" id="trailer">
                     <video controls>
                         <source src="trailer.mp4" type="video/mp4">
@@ -400,25 +594,24 @@ footer {
         </section>
 
         <section>
-            <h2>🖼️ Screenshots</h2>
+            <h2><i class="ri-image-2-line"></i> Screenshots</h2>
             <div class="dropdown">
-                <h3 onclick="toggleDropdown('screenshots')">🖼️ View Screenshots</h3>
+                <h3 onclick="toggleDropdown('screenshots')"><i class="ri-gallery-line"></i> View Screenshots</h3>
                 <div class="dropdown-content" id="screenshots">
                     <div class="screenshot-grid">
                         <img src="screenshot1.PNG" alt="Screenshot 1">
                         <img src="screenshot2.jpeg" alt="Screenshot 2">
                         <img src="screenshot3.PNG" alt="Screenshot 3">
                         <img src="https://github.com/StikEMU/stikemu.github.io/raw/main/screenshot4.png">
-                        
                     </div>
                 </div>
             </div>
         </section>
 
         <section>
-            <h2>📖 Privacy Policy</h2>
+            <h2><i class="ri-shield-keyhole-line"></i> Privacy Policy</h2>
             <div class="dropdown">
-                <h3 onclick="toggleDropdown('privacy')">🔒 View Privacy Policy</h3>
+                <h3 onclick="toggleDropdown('privacy')"><i class="ri-lock-line"></i> View Privacy Policy</h3>
                 <div class="dropdown-content" id="privacy">
                     <p>
                         StikNES respects your privacy. We do not collect or store any personal data unless you explicitly provide it, outside of what Apple automatically collects.
@@ -432,9 +625,9 @@ footer {
         </section>
 
         <section>
-            <h2>🤝 Support</h2>
+            <h2><i class="ri-customer-service-2-line"></i> Support</h2>
             <div class="dropdown">
-                <h3 onclick="toggleDropdown('support')">💬 Get Support</h3>
+                <h3 onclick="toggleDropdown('support')"><i class="ri-question-line"></i> Get Support</h3>
                 <div class="dropdown-content" id="support">
                     <p>
                         Need help or have questions? Join our official Discord server to connect with the community and get assistance.
@@ -447,9 +640,9 @@ footer {
         </section>
 
         <section>
-            <h2>📱 Download on the App Store</h2>
+            <h2><i class="ri-app-store-line"></i> Download on the App Store</h2>
             <div class="dropdown">
-                <h3 onclick="toggleDropdown('download')">📲 Learn More</h3>
+                <h3 onclick="toggleDropdown('download')"><i class="ri-information-line"></i> Learn More</h3>
                 <div class="dropdown-content" id="download">
                     <p>StikNES will be available on the App Store starting <strong>March 1st, 2025</strong>.</p>
                     <p>Countdown to release:</p>
@@ -459,9 +652,9 @@ footer {
         </section>
 
         <section>
-            <h2>🔍 Device Compatibility & Requirements</h2>
+            <h2><i class="ri-device-line"></i> Device Compatibility & Requirements</h2>
             <div class="dropdown">
-                <h3 onclick="toggleDropdown('devices')">📱 Supported Devices</h3>
+                <h3 onclick="toggleDropdown('devices')"><i class="ri-smartphone-line"></i> Supported Devices</h3>
                 <div class="dropdown-content" id="devices">
                     <ul>
                         <li>iPhone SE (2nd generation) and newer</li>
@@ -472,11 +665,11 @@ footer {
                         <li>iPad Mini (5th generation) and newer</li>
                     </ul>
                 </div>
-                <h3 onclick="toggleDropdown('requirements')">🛠️ Operating System Requirements</h3>
+                <h3 onclick="toggleDropdown('requirements')"><i class="ri-settings-3-line"></i> Operating System Requirements</h3>
                 <div class="dropdown-content" id="requirements">
                     <p>StikNES requires iOS 16.0 or later.</p>
                 </div>
-                <h3 onclick="toggleDropdown('limitations')">🚫 Known Limitations</h3>
+                <h3 onclick="toggleDropdown('limitations')"><i class="ri-error-warning-line"></i> Known Limitations</h3>
                 <div class="dropdown-content" id="limitations">
                     <ul>
                         <li>Older devices may experience performance issues and require more testing.</li>
@@ -484,7 +677,7 @@ footer {
                         <li>AirPlay support is planned for future releases but is not currently available.</li>
                     </ul>
                 </div>
-                <h3 onclick="toggleDropdown('systemSupport')">🕹️ Current System Support</h3>
+                <h3 onclick="toggleDropdown('systemSupport')"><i class="ri-gamepad-line"></i>Current System Support</h3>
                 <div class="dropdown-content" id="systemSupport">
                     <p>Currently Supported: <strong>NES</strong></p>
                     <p>Coming Soon: <strong>Flash</strong></p>
@@ -493,9 +686,9 @@ footer {
         </section>
 
         <section>
-            <h2>🕹️ Software Compatibility</h2>
+            <h2><i class="ri-gamepad-line"></i> Software Compatibility</h2>
             <div class="dropdown">
-                <h3 onclick="toggleDropdown('highCompatibility')">🟢 High Compatibility and Performance</h3>
+                <h3 onclick="toggleDropdown('highCompatibility')"><i class="ri-check-double-line"></i> High Compatibility and Performance</h3>
                 <div class="dropdown-content" id="highCompatibility">
                     <ul>
                         <li>Super Mario Bros. 3</li>
@@ -507,7 +700,7 @@ footer {
                 </div>
             </div>
             <div class="dropdown">
-                <h3 onclick="toggleDropdown('moderateCompatibility')">🟡 Moderate Compatibility</h3>
+                <h3 onclick="toggleDropdown('moderateCompatibility')"><i class="ri-error-warning-line"></i> Moderate Compatibility</h3>
                 <div class="dropdown-content" id="moderateCompatibility">
                     <ul>
                         <li>Super Mario Bros. - Game runs at 2x speed.</li>
@@ -515,7 +708,7 @@ footer {
                 </div>
             </div>
             <div class="dropdown">
-                <h3 onclick="toggleDropdown('lowCompatibility')">🔴 Low Compatibility</h3>
+                <h3 onclick="toggleDropdown('lowCompatibility')"><i class="ri-close-circle-line"></i> Low Compatibility</h3>
                 <div class="dropdown-content" id="lowCompatibility">
                     <ul>
                         <li>Super Mario Bros. + Duck Hunt - Does not boot.</li>
@@ -525,9 +718,9 @@ footer {
         </section>
 
         <section>
-            <h2>🔗 GitHub</h2>
+            <h2><i class="ri-github-fill"></i> GitHub</h2>
             <div class="dropdown">
-                <h3 onclick="toggleDropdown('githubLinks')">🔗 GitHub Links</h3>
+                <h3 onclick="toggleDropdown('githubLinks')"><i class="ri-links-line"></i> GitHub Links</h3>
                 <div class="dropdown-content" id="githubLinks">
                     <p>The source code will be available when the app relaunches on <strong>March 1st, 2025</strong>.</p>
                     <ul>
