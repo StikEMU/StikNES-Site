@@ -5,122 +5,341 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StikNES - SwiftUI NES Emulator</title>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #121212;
-            color: #e0e0e0;
-        }
-        header {
-            background-color: #1e1e1e;
-            padding: 20px;
-            text-align: center;
-            border-bottom: 1px solid #333333;
-            max-width: 800px;
-            margin: 0 auto;
-            border-radius: 8px;
-        }
-        header h1 {
-            font-size: 2rem;
-            margin: 0;
-            color: #ffffff;
-        }
-        header p {
-            margin: 10px 0 0;
-            font-size: 1rem;
-            color: #b0b0b0;
-        }
-        main {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        section {
-            margin-bottom: 40px;
-        }
-        section h2 {
-            font-size: 1.8rem;
-            color: #ffffff;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-        .dropdown {
-            border: 1px solid #333333;
-            border-radius: 8px;
-            background-color: #1e1e1e;
-            padding: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-        }
-        .dropdown h3 {
-            font-size: 1.2rem;
-            margin: 0;
-            cursor: pointer;
-            color: #ffffff;
-        }
-        .dropdown-content {
-            margin-top: 10px;
-            padding: 0 10px;
-            display: none;
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #e0e0e0;
-        }
-        .dropdown-content ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .dropdown-content li {
-            margin: 5px 0;
-        }
-        .dropdown-content a {
-            text-decoration: none;
-            color: #82b1ff;
-        }
-        .dropdown-content a:hover {
-            text-decoration: underline;
-        }
-        .dropdown-content img {
-            width: 100%; /* Scale to the width of the parent container */
-            height: auto; /* Maintain aspect ratio */
-            max-width: 800px; /* Optional: Limit the max width of the images */
-            margin-bottom: 20px; /* Add spacing between images */
-            border-radius: 8px; /* Optional: Add rounded corners */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Optional: Add a subtle shadow */
-        }
-        video {
-            width: 100%;
-            max-width: 900px;
-            height: auto;
-            border: none;
-        }
-        #countdown {
-            font-size: 1.5rem;
-            color: #82b1ff;
-            margin-top: 10px;
-        }
-        footer {
-            background-color: #1e1e1e;
-            padding: 20px;
-            border-top: 1px solid #333333;
-            text-align: center;
-            color: #b0b0b0;
-            max-width: 800px;
-            margin: 0 auto;
-            border-radius: 8px;
-        }
-        footer a {
-            color: #82b1ff;
-            text-decoration: none;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
+    :root {
+    --primary-color: #6366f1;
+    --primary-hover: #818cf8;
+    --background-dark: #0f172a;
+    --surface-dark: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --border-color: #334155;
+    --accent-gradient: linear-gradient(135deg, #6366f1, #3b82f6);
+    --hover-gradient: linear-gradient(135deg, #818cf8, #60a5fa);
+    --shadow-color: rgba(30, 41, 59, 0.5);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+header {
+    background: var(--surface-dark);
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px var(--shadow-color);
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+header:hover {
+    transform: translateY(-4px);
+}
+
+header h1 {
+    font-size: 3rem;
+    margin: 0;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: titleGlow 2s ease-in-out infinite alternate, pulseScale 6s ease-in-out infinite;
+    text-shadow: 0 2px 4px var(--shadow-color);
+    transition: transform 0.3s ease-in-out;
+}
+
+header h1:hover {
+    transform: scale(1.1);
+}
+
+@keyframes titleGlow {
+    0% {
+        text-shadow: 0 0 15px rgba(99, 102, 241, 0.2), 0 0 30px rgba(99, 102, 241, 0.4);
+    }
+    100% {
+        text-shadow: 0 0 25px rgba(99, 102, 241, 0.6), 0 0 50px rgba(99, 102, 241, 0.8);
+    }
+}
+
+@keyframes pulseScale {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+
+main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+section {
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+section h2 {
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid var(--primary-color);
+    transition: border-color 0.3s ease;
+}
+
+section h2:hover {
+    border-color: var(--primary-hover);
+}
+
+.dropdown {
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    background-color: var(--surface-dark);
+    margin-bottom: 15px;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dropdown:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px var(--shadow-color);
+    border-color: var(--primary-color);
+}
+
+.dropdown h3 {
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.dropdown h3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--accent-gradient);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+}
+
+.dropdown h3:hover::before {
+    opacity: 0.1;
+}
+
+.dropdown-content {
+    margin-top: 0;
+    padding: 20px;
+    display: none;
+    border-top: 1px solid var(--border-color);
+}
+
+.dropdown-content.show {
+    display: block;
+    animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.dropdown-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-content li {
+    margin: 12px 0;
+    padding-left: 24px;
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+.dropdown-content li:hover {
+    transform: translateX(4px);
+}
+
+.dropdown-content li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    transition: transform 0.2s ease;
+}
+
+.dropdown-content li:hover::before {
+    transform: translateX(4px);
+}
+
+.dropdown-content a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.dropdown-content a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background: var(--accent-gradient);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-content a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.dropdown-content video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 0 auto;
+    display: block;
+}
+
+.dropdown-content img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 10px 0;
+    display: block;
+}
+
+.screenshot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 10px 0;
+}
+
+#countdown {
+    font-size: 2rem;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 0 2px 4px var(--shadow-color);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+footer {
+    background-color: var(--surface-dark);
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 16px;
+    box-shadow: 0 -4px 16px var(--shadow-color);
+}
+
+.logo-container {
+        display: inline-flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .logo {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        animation: rotateLogo 20s linear infinite, glowPulse 2s ease-in-out infinite alternate;
+        border: 2px solid var(--primary-color);
+        box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+    }
+
     </style>
     <script>
         function toggleDropdown(contentId) {
             const content = document.getElementById(contentId);
-            content.style.display = content.style.display === "block" ? "none" : "block";
+            const allContent = document.getElementsByClassName('dropdown-content');
+            const allVideos = document.getElementsByTagName('video');
+            
+            Array.from(allVideos).forEach(video => {
+                video.pause();
+                video.currentTime = 0;
+            });
+            
+            Array.from(allContent).forEach(element => {
+                if (element.id !== contentId && element.classList.contains('show')) {
+                    element.classList.remove('show');
+                }
+            });
+            
+            content.classList.toggle('show');
         }
 
         function updateCountdown() {
@@ -142,11 +361,28 @@
         }
 
         setInterval(updateCountdown, 1000);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => observer.observe(section));
+        });
     </script>
 </head>
 <body>
     <header>
-        <h1>StikNES</h1>
+        <div class="logo-container">
+            <img src="logo.png" alt="StikNES Logo" class="logo">
+            <h1>StikNES</h1>
+        </div>
         <p>SwiftUI NES Emulator for iOS</p>
     </header>
     <main>
@@ -162,32 +398,38 @@
                 </div>
             </div>
         </section>
+
         <section>
             <h2>🖼️ Screenshots</h2>
             <div class="dropdown">
                 <h3 onclick="toggleDropdown('screenshots')">🖼️ View Screenshots</h3>
                 <div class="dropdown-content" id="screenshots">
-                    <img src="screenshot1.PNG" alt="Screenshot 1">
-                    <img src="screenshot2.jpeg" alt="Screenshot 2">
-                    <img src="screenshot3.PNG" alt="Screenshot 3">
+                    <div class="screenshot-grid">
+                        <img src="screenshot1.PNG" alt="Screenshot 1">
+                        <img src="screenshot2.jpeg" alt="Screenshot 2">
+                        <img src="screenshot3.PNG" alt="Screenshot 3">
+                        <img src="https://github.com/StikEMU/stikemu.github.io/raw/main/screenshot4.png">
+                        
+                    </div>
                 </div>
             </div>
         </section>
-<section>
-    <h2>📖 Privacy Policy</h2>
-    <div class="dropdown">
-        <h3 onclick="toggleDropdown('privacy')">🔒 View Privacy Policy</h3>
-        <div class="dropdown-content" id="privacy">
-            <p>
-                StikNES respects your privacy. We do not collect or store any personal data unless you explicitly provide it, outside of what Apple automatically collects.
-                All emulator usage is handled locally on your device.
-            </p>
-            <p>
-                For more details, please join our <a href="https://discord.gg/VA6syDVdP5">Discord.</a>
-            </p>
-        </div>
-    </div>
-</section>
+
+        <section>
+            <h2>📖 Privacy Policy</h2>
+            <div class="dropdown">
+                <h3 onclick="toggleDropdown('privacy')">🔒 View Privacy Policy</h3>
+                <div class="dropdown-content" id="privacy">
+                    <p>
+                        StikNES respects your privacy. We do not collect or store any personal data unless you explicitly provide it, outside of what Apple automatically collects.
+                        All emulator usage is handled locally on your device.
+                    </p>
+                    <p>
+                        For more details, please join our <a href="https://discord.gg/VA6syDVdP5">Discord.</a>
+                    </p>
+                </div>
+            </div>
+        </section>
 
         <section>
             <h2>🤝 Support</h2>
@@ -203,6 +445,7 @@
                 </div>
             </div>
         </section>
+
         <section>
             <h2>📱 Download on the App Store</h2>
             <div class="dropdown">
@@ -214,6 +457,7 @@
                 </div>
             </div>
         </section>
+
         <section>
             <h2>🔍 Device Compatibility & Requirements</h2>
             <div class="dropdown">
@@ -247,6 +491,7 @@
                 </div>
             </div>
         </section>
+
         <section>
             <h2>🕹️ Software Compatibility</h2>
             <div class="dropdown">
@@ -278,6 +523,7 @@
                 </div>
             </div>
         </section>
+
         <section>
             <h2>🔗 GitHub</h2>
             <div class="dropdown">
@@ -291,6 +537,7 @@
                 </div>
             </div>
         </section>
+
         <footer>
             <p>
                 Disclaimer: StikNES is not affiliated with Nintendo. All trademarks and game console names are the property of Nintendo Co., Ltd.
