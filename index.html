@@ -577,14 +577,6 @@ section h2 i {
 }
 
 
-.roadmap-toggle i {
-    flex: 0 0 24px;
-    font-size: 1.5rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .roadmap-section h2 {
     text-align: center;
     margin-bottom: 2.5rem;
@@ -610,7 +602,6 @@ section h2 i {
     background: var(--accent-gradient);
     border-radius: 3px;
     box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
-    
 }
 
 .roadmap-section h2 i {
@@ -620,16 +611,11 @@ section h2 i {
     color: transparent;
     margin-right: 0.5rem;
     transition: transform 0.3s ease;
-    
 }
 
 .roadmap-section h2:hover i {
     transform: scale(1.1);
     filter: brightness(1.2);
-}
-
-.ri-calendar-line {
-    margin-right: 5px;
 }
 
 
@@ -746,16 +732,13 @@ section h2 i {
     box-shadow: 0 4px 12px var(--shadow-color);
 }
 
-.ri-time-line {
-    margin-right: 5px;
-}
-
 .roadmap-title {
     font-size: 1.2rem;
     font-weight: 600;
     color: var(--text-primary);
     margin: 0;
 }
+
 
 .roadmap-content {
     background: rgba(99, 102, 241, 0.1);
@@ -794,6 +777,81 @@ section h2 i {
     color: var(--primary-color);
 }
 
+
+.ri-calendar-line {
+    margin-right: 5px;
+}
+
+.ri-time-line {
+    margin-right: 5px;
+}
+
+
+@media screen and (max-width: 600px) {
+    .roadmap-toggle {
+        font-size: 1.25rem;
+        padding: 0.5rem;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .roadmap-toggle i.ri-road-map-line {
+        font-size: 1.5rem;
+    }
+
+    .roadmap-toggle i.ri-arrow-down-s-line {
+        position: static;
+        margin-left: 0.5rem;
+    }
+
+    .roadmap-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .roadmap-header {
+        flex-wrap: wrap;
+    }
+
+    .roadmap-status {
+        margin-left: 0;
+        margin-top: 0.5rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .roadmap-title {
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .roadmap-section {
+        padding: 1rem;
+    }
+    
+    .roadmap-timeline::before {
+        left: 10px;
+    }
+    
+    .roadmap-item::before {
+        left: 6px;
+    }
+    
+    .roadmap-header {
+        align-items: center;
+    }
+    
+    .roadmap-content {
+        margin-left: 0;
+        padding: 0.75rem;
+    }
+    
+    .roadmap-list li i {
+        font-size: 1rem;
+        flex-shrink: 0;
+    }
+}
 
 @keyframes slideIn {
     0% {
