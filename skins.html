@@ -25,8 +25,6 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
             background-color: var(--background-dark);
             color: var(--text-primary);
             line-height: 1.6;
@@ -49,27 +47,6 @@
             overflow: hidden;
         }
 
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--accent-gradient);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        header:hover {
-            transform: translateY(-6px);
-        }
-
-        header:hover::before {
-            transform: scaleX(1);
-        }
-
         header h1 {
             font-size: clamp(2rem, 5vw, 3.5rem);
             margin: 0;
@@ -84,8 +61,6 @@
             color: var(--text-secondary);
             font-size: 1.2rem;
             margin-top: 1rem;
-            opacity: 0;
-            animation: fadeSlideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.3s;
         }
 
         .search-container {
@@ -107,12 +82,6 @@
             color: var(--text-secondary);
             font-size: 1.25rem;
             pointer-events: none;
-            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .search-input:focus + i {
-            transform: translateY(-50%) scale(1.1);
-            color: var(--primary-color);
         }
 
         .search-input {
@@ -123,54 +92,25 @@
             background: var(--surface-dark);
             color: var(--text-primary);
             font-size: 1.1rem;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
-        }
-
-       
-        .skin-image {
-            width: 100%;
-            height: 320px;
-            object-fit: cover; 
-            background: var(--surface-dark);
-            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .skins-grid {
-    width: var(--content-width);
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 2rem;
-    padding: 0 1rem;
-        }
-
-        @media (max-width: 768px) {
-            .skins-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .skin-image {
-                height: 280px;
-            }
+            width: var(--content-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 0 1rem;
         }
 
         .skin-card {
             background: var(--surface-dark);
-    border-radius: 20px;
-    overflow: hidden;
-    border: 2px solid var(--border-color);
-    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-    position: relative;
-    animation: fadeIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    cursor: pointer;
-    display: flex; 
-    flex-direction: column;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid var(--border-color);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: flex;
+            flex-direction: column;
         }
 
         .skin-card:hover {
@@ -181,14 +121,9 @@
 
         .skin-image {
             width: 100%;
-    height: auto;
-    object-fit: cover; 
-    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); 
-    background: var(--surface-dark);
-        }
-
-        .skin-card:hover .skin-image {
-            transform: scale(1.05);
+            object-fit: cover;
+            background: var(--surface-dark);
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .skin-content {
@@ -199,39 +134,12 @@
             font-size: 1.5rem;
             margin: 0;
             color: var(--text-primary);
-            position: relative;
-            display: inline-block;
-        }
-
-        .skin-title::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--accent-gradient);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .skin-card:hover .skin-title::after {
-            transform: scaleX(1);
         }
 
         .skin-author {
             color: var(--text-secondary);
             font-size: 1rem;
             margin: 0.75rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .skin-author i {
-            color: var(--primary-color);
-            font-size: 1.2rem;
         }
 
         .download-btn {
@@ -242,162 +150,13 @@
             border-radius: 12px;
             background: var(--accent-gradient);
             color: white;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             font-size: 1.1rem;
             font-weight: 500;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
-        }
-
-        .download-btn i {
-            font-size: 1.3rem;
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .download-btn:hover {
-            opacity: 0.95;
-            transform: translateY(-2px);
-        }
-
-        .download-btn:hover i {
-            transform: translateY(-2px);
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            z-index: 1000;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .modal.active {
-            display: flex;
-            opacity: 1;
-        }
-
-        .modal-content {
-            position: relative;
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
-            background: var(--surface-dark);
-            border-radius: 24px;
-            padding: 2rem;
-            transform: scale(0.9);
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .modal.active .modal-content {
-            transform: scale(1);
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-
-        .modal-title {
-            font-size: 2rem;
-            margin: 0;
-        }
-
-        .close-modal {
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 2rem;
-            cursor: pointer;
-            padding: 0.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .close-modal:hover {
-            transform: rotate(90deg);
-        }
-
-        .preview-container {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .phone-preview {
-            flex: 1;
-            min-width: 300px;
-            max-width: 500px;
-            aspect-ratio: 9/16;
-            background: var(--background-dark);
-            border-radius: 24px;
-            padding: 1rem;
-            border: 12px solid #2a2a2a;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .preview-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 12px;
-        }
-
-        .preview-details {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .preview-description {
-            margin: 1rem 0;
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-        }
-
-        .preview-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .stat-item {
-            background: var(--background-dark);
-            padding: 1rem;
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        .stat-value {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-
-        .stat-label {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            text-decoration: none;
         }
 
         @keyframes titlePulse {
@@ -410,17 +169,6 @@
                 transform: scale(1.02);
             }
         }
-
-        @keyframes fadeSlideUp {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
     </style>
 </head>
 <body>
@@ -428,8 +176,7 @@
         <h1>StikNES Skin Marketplace</h1>
         <p>Download custom skins for your emulator</p>
     </header>
-    
-    
+
     <div class="search-container">
         <div class="search-box">
             <input type="text" class="search-input" placeholder="Search skins or creators...">
@@ -437,130 +184,58 @@
         </div>
     </div>
 
-    <div class="skins-grid">
-        <div class="skin-card">
-            <img src="skins/NeoDark.png" alt="Classic Dark" class="skin-image">
-            <div class="skin-content">
-                <h3 class="skin-title">Classic Dark</h3>
-                <div class="skin-author">
-                    <i class="ri-user-star-fill"></i>
-                    by neoarz
-                </div>
-                <p>A smooth dark theme</p>
-                <button class="download-btn">
-                    <i class="ri-download-cloud-fill"></i>
-                    Download
-                </button>
-            </div>
-        </div>
-
-        <div class="skin-card">
-            <img src="skins/neowhite.png" alt="Classic White" class="skin-image">
-            <div class="skin-content">
-                <h3 class="skin-title">Classic White</h3>
-                <div class="skin-author">
-                    <i class="ri-user-star-fill"></i>
-                    by neoarz
-                </div>
-                <p>Classic white with custom buttons</p>
-                <button class="download-btn">
-                    <i class="ri-download-cloud-fill"></i>
-                    Download
-                </button>
-            </div>
-        </div>
-
-        
-        <div class="skin-card">
-            <img src="Skins/NeoDark.png" alt="Neon Future" class="skin-image">
-            <div class="skin-content">
-                <h3 class="skin-title">smth</h3>
-                <div class="skin-author">
-                    <i class="ri-user-star-fill"></i>
-                    by neo
-                </div>
-                <p>smth</p>
-                <button class="download-btn">
-                    <i class="ri-download-cloud-fill"></i>
-                    Download
-                </button>
-            </div>
-        </div>
-
-        <div class="skin-card">
-            <img src="skins/NeoWhite.png" alt="Minimal White" class="skin-image">
-            <div class="skin-content">
-                <h3 class="skin-title">Minimal White</h3>
-                <div class="skin-author">
-                    <i class="ri-user-star-fill"></i>
-                    by neoarz
-                </div>
-                <p>Clean and minimalistic light theme</p>
-                <button class="download-btn">
-                    <i class="ri-download-cloud-fill"></i>
-                    Download
-                </button>
-            </div>
-        </div>
-    </div>
+    <div class="skins-grid"></div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const modal = document.getElementById('previewModal');
-            const skinCards = document.querySelectorAll('.skin-card');
-            const closeModal = document.querySelector('.close-modal');
+        document.addEventListener('DOMContentLoaded', async function () {
+            const skinsGrid = document.querySelector('.skins-grid');
             const searchInput = document.querySelector('.search-input');
 
-          
-            skinCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    const title = card.querySelector('.skin-title').textContent;
-                    const author = card.querySelector('.skin-author').textContent;
-                    const image = card.querySelector('.skin-image').src;
-
-                    modal.querySelector('.modal-title').textContent = title;
-                    modal.querySelector('.preview-image').src = image;
-                    modal.querySelector('.skin-title').textContent = title;
-                    modal.querySelector('.skin-author').textContent = author;
-                    modal.classList.add('active');
-                });
-            });
-
-            closeModal.addEventListener('click', function() {
-                modal.classList.remove('active');
-            });
-
-          
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    modal.classList.remove('active');
+            // Fetch skins from the JSON file
+            const fetchSkins = async () => {
+                try {
+                    const response = await fetch('skins.json');
+                    if (!response.ok) throw new Error('Failed to fetch skins');
+                    return await response.json();
+                } catch (error) {
+                    console.error('Error loading skins:', error);
+                    return [];
                 }
-            });
+            };
 
-      
-            searchInput.addEventListener('input', function(e) {
+            // Render skins
+            const renderSkins = (skins) => {
+                skinsGrid.innerHTML = '';
+                skins.forEach(skin => {
+                    const skinCard = document.createElement('div');
+                    skinCard.className = 'skin-card';
+                    skinCard.innerHTML = `
+                        <img src="${skin.image}" alt="${skin.title}" class="skin-image">
+                        <div class="skin-content">
+                            <h3 class="skin-title">${skin.title}</h3>
+                            <p class="skin-author">by ${skin.author}</p>
+                            <p>${skin.description}</p>
+                            <a href="${skin.downloadUrl}" class="download-btn" download>
+                                <i class="ri-download-cloud-fill"></i> Download
+                            </a>
+                        </div>
+                    `;
+                    skinsGrid.appendChild(skinCard);
+                });
+            };
+
+            // Initialize skins
+            const skins = await fetchSkins();
+            renderSkins(skins);
+
+            // Search functionality
+            searchInput.addEventListener('input', function (e) {
                 const searchTerm = e.target.value.toLowerCase();
-                
-                skinCards.forEach(card => {
-                    const title = card.querySelector('.skin-title').textContent.toLowerCase();
-                    const author = card.querySelector('.skin-author').textContent.toLowerCase();
-                    
-                    if (title.includes(searchTerm) || author.includes(searchTerm)) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-
-          
-            const downloadButtons = document.querySelectorAll('.download-btn');
-            downloadButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.stopPropagation(); 
-
-                    alert('Starting download...');
-                });
+                const filteredSkins = skins.filter(skin =>
+                    skin.title.toLowerCase().includes(searchTerm) ||
+                    skin.author.toLowerCase().includes(searchTerm)
+                );
+                renderSkins(filteredSkins);
             });
         });
     </script>
