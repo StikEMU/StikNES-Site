@@ -75,7 +75,6 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            animation: titlePulse 3s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
         }
 
         header p {
@@ -105,6 +104,117 @@
         .nav-btn:hover {
             background: var(--primary-color);
             color: white;
+        }
+
+        .search-container {
+            width: var(--content-width);
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .search-box {
+            position: relative;
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            font-size: 1.25rem;
+            pointer-events: none;
+            transition: transform 0.5s, color 0.5s;
+        }
+
+        .search-box:hover i {
+            color: var(--primary-color);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1.25rem 1.25rem 1.25rem 3.5rem;
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            background: var(--surface-dark);
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            transition: border-color 0.4s, box-shadow 0.4s;
+        }
+
+        .search-input:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 8px rgba(99, 102, 241, 0.5);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3);
+        }
+
+        .skins-grid {
+            width: var(--content-width);
+            margin: 2rem auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+
+        .skin-card {
+            background: var(--surface-dark);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid var(--border-color);
+            transition: transform 0.5s, box-shadow 0.5s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .skin-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(99, 102, 241, 0.5);
+            border-color: var(--primary-color);
+        }
+
+        .skin-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .skin-content {
+            padding: 1.5rem;
+        }
+
+        .skin-title {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .skin-author {
+            color: var(--text-secondary);
+            margin: 0.5rem 0;
+        }
+
+        .download-btn {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 12px;
+            background: var(--accent-gradient);
+            color: white;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .download-btn:hover {
+            opacity: 0.9;
         }
 
         .popup {
@@ -149,132 +259,6 @@
             cursor: pointer;
         }
 
-        .search-container {
-            width: var(--content-width);
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        .search-box {
-            position: relative;
-            width: 100%;
-        }
-
-        .search-box i {
-            position: absolute;
-            left: 1.5rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-secondary);
-            font-size: 1.25rem;
-            pointer-events: none;
-            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .search-input:focus + i {
-            transform: translateY(-50%) scale(1.1);
-            color: var(--primary-color);
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 1.25rem 1.25rem 1.25rem 3.5rem;
-            border: 2px solid var(--border-color);
-            border-radius: 16px;
-            background: var(--surface-dark);
-            color: var(--text-primary);
-            font-size: 1.1rem;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
-        }
-
-        .skins-grid {
-            width: var(--content-width);
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 0 1rem;
-        }
-
-        .skin-card {
-            background: var(--surface-dark);
-            border-radius: 20px;
-            overflow: hidden;
-            border: 2px solid var(--border-color);
-            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .skin-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--primary-color);
-            box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
-        }
-
-        .skin-image {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-            background: var(--surface-dark);
-        }
-
-        .skin-card:hover .skin-image {
-            transform: scale(1.05);
-        }
-
-        .skin-content {
-            padding: 1.5rem;
-        }
-
-        .skin-title {
-            font-size: 1.5rem;
-            color: var(--text-primary);
-        }
-
-        .skin-author {
-            color: var(--text-secondary);
-            margin: 0.5rem 0;
-        }
-
-        .download-btn {
-            width: 100%;
-            padding: 1rem;
-            border: none;
-            border-radius: 12px;
-            background: var(--accent-gradient);
-            color: white;
-            cursor: pointer;
-            font-size: 1.1rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .download-btn i {
-            font-size: 1.3rem;
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .download-btn:hover {
-            opacity: 0.95;
-            transform: translateY(-2px);
-        }
-
-        .download-btn:hover i {
-            transform: translateY(-2px);
-        }
-
         @keyframes fadeSlideUp {
             from {
                 opacity: 0;
@@ -283,15 +267,6 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
-            }
-        }
-
-        @keyframes titlePulse {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.6;
             }
         }
     </style>
@@ -320,9 +295,6 @@
             <div class="skin-content">
                 <h3 class="skin-title">Classic Dark</h3>
                 <div class="skin-author">by neoarz</div>
-                <button class="download-btn" data-file="Skins/NeoDark.stikskin">
-                    <i class="ri-download-cloud-fill"></i> Download
-                </button>
             </div>
         </div>
         <div class="skin-card" data-title="Classic White" data-author="neoarz">
@@ -330,14 +302,11 @@
             <div class="skin-content">
                 <h3 class="skin-title">Classic White</h3>
                 <div class="skin-author">by neoarz</div>
-                <button class="download-btn" data-file="Skins/NeoWhite.stikskin">
-                    <i class="ri-download-cloud-fill"></i> Download
-                </button>
             </div>
         </div>
     </div>
 
-    <!-- Submit Skins Popup -->
+    <!-- Popup -->
     <div id="submit-popup" class="popup">
         <div class="popup-content">
             <span class="close-btn" onclick="closeSubmitPopup()">&times;</span>
@@ -346,6 +315,7 @@
     </div>
 
     <script>
+        // Open/Close Popup
         function openSubmitPopup() {
             document.getElementById('submit-popup').style.display = 'flex';
         }
@@ -354,6 +324,7 @@
             document.getElementById('submit-popup').style.display = 'none';
         }
 
+        // Search Functionality
         document.getElementById('search-input').addEventListener('input', function () {
             const query = this.value.toLowerCase();
             const skins = document.querySelectorAll('.skin-card');
@@ -367,19 +338,6 @@
                 } else {
                     skin.style.display = 'none';
                 }
-            });
-        });
-
-        document.querySelectorAll('.download-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                const file = button.getAttribute('data-file');
-                const link = document.createElement('a');
-                link.href = file;
-                link.download = file.split('/').pop();
-                link.style.display = 'none';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
             });
         });
     </script>
