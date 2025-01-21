@@ -13,7 +13,7 @@ Welcome to the official website repository for **StikNES** and **StikEMU**! This
 The project is licensed as follows:
 
 - **Website Code and Assets**: Licensed under the [MIT License](https://github.com/StikEMU/StikNES-Site/blob/main/LICENSE).
-- **Skins**: All skins displayed on this website are **proprietary** and **remain the exclusive property of their respective creators.** Redistribution or modification of these skins is **strictly forbidden** without the **explicit permission** of the creators.
+- **Skins**: All skins displayed on this website are proprietary and remain the exclusive property of their respective creators. Redistribution or modification of these skins is strictly forbidden without the explicit permission of the creators.
 
 ## Adding Skins
 
