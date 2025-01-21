@@ -5,7 +5,7 @@
         "author": "neoarz",
         "description": "A smooth dark theme",
         "image": "skins/NeoDark.png",
-        "downloadUrl": "skins/downloads/NeoDark.stikskin"
+        "downloadUrl": "downloads/NeoDark.stikskin"
     },
     {
         "id": "classic_white",
@@ -13,6 +13,6 @@
         "author": "neoarz",
         "description": "Classic white with custom buttons",
         "image": "skins/NeoWhite.png",
-        "downloadUrl": "skins/downloads/NeoWhite.stikskin"
+        "downloadUrl": "downloads/NeoWhite.stikskin"
     }
 ]
