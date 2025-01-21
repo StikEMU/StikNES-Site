@@ -45,6 +45,7 @@ We welcome contributions to improve the website! If you'd like to contribute:
 
 For questions, feedback, or support:
 - Visit our [GitHub repository](https://github.com/StikEMU/StikNES-Site).
+- Join our [Discord](https://discord.gg/a6qxs97Gun)!
 - Open an issue in the repository if you encounter any bugs or have feature requests.
 
 Thank you for supporting **StikNES/StikEMU**!
