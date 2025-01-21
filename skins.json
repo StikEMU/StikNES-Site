@@ -1,0 +1,18 @@
+[
+    {
+        "id": "classic_dark",
+        "title": "Classic Dark",
+        "author": "neoarz",
+        "description": "A smooth dark theme",
+        "image": "skins/NeoDark.png",
+        "downloadUrl": "downloads/NeoDark.zip"
+    },
+    {
+        "id": "classic_white",
+        "title": "Classic White",
+        "author": "neoarz",
+        "description": "Classic white with custom buttons",
+        "image": "skins/NeoWhite.png",
+        "downloadUrl": "downloads/NeoWhite.zip"
+    }
+]
