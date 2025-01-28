@@ -2,27 +2,19 @@
   "skins": [
     {
       "id": "skin1",
-      "name": "Ocean Breeze",
-      "image_url": "https://example.com/skins/ocean_breeze.png",
+      "name": "Classic White",
+      "image_url": "https://raw.githubusercontent.com/StikEMU/StikNES-Site/refs/heads/main/Skins/NeoWhite.png",
       "category": "vertical",
-      "description": "A calming blue gradient inspired by ocean waves.",
-      "creator": "Jane Doe"
+      "description": "A classic white skin.",
+      "creator": "neoarz"
     },
     {
       "id": "skin2",
-      "name": "Sunset Horizon",
-      "image_url": "https://example.com/skins/sunset_horizon.png",
+      "name": "Classic Darl",
+      "image_url": "https://raw.githubusercontent.com/StikEMU/StikNES-Site/refs/heads/main/Skins/NeoDark.png",
       "category": "horizontal",
-      "description": "A stunning mix of warm orange and purple hues of a sunset.",
-      "creator": "John Smith"
-    },
-    {
-      "id": "skin3",
-      "name": "Galaxy Swirl",
-      "image_url": "https://example.com/skins/galaxy_swirl.png",
-      "category": "vertical",
-      "description": "A deep space-inspired skin with stars and nebulae.",
-      "creator": "Alice Johnson"
+      "description": "A classic dark skin.",
+      "creator": "neoarz"
     }
   ]
 }
