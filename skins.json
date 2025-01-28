@@ -1,18 +1,28 @@
-[
+{
+  "skins": [
     {
-        "id": "classic_dark",
-        "title": "Classic Dark",
-        "author": "neoarz",
-        "description": "A smooth dark theme",
-        "image": "skins/NeoDark.png",
-        "downloadUrl": "downloads/NeoDark.stikskin"
+      "id": "skin1",
+      "name": "Ocean Breeze",
+      "image_url": "https://example.com/skins/ocean_breeze.png",
+      "category": "vertical",
+      "description": "A calming blue gradient inspired by ocean waves.",
+      "creator": "Jane Doe"
     },
     {
-        "id": "classic_white",
-        "title": "Classic White",
-        "author": "neoarz",
-        "description": "Classic white with custom buttons",
-        "image": "skins/NeoWhite.png",
-        "downloadUrl": "downloads/NeoWhite.stikskin"
+      "id": "skin2",
+      "name": "Sunset Horizon",
+      "image_url": "https://example.com/skins/sunset_horizon.png",
+      "category": "horizontal",
+      "description": "A stunning mix of warm orange and purple hues of a sunset.",
+      "creator": "John Smith"
+    },
+    {
+      "id": "skin3",
+      "name": "Galaxy Swirl",
+      "image_url": "https://example.com/skins/galaxy_swirl.png",
+      "category": "vertical",
+      "description": "A deep space-inspired skin with stars and nebulae.",
+      "creator": "Alice Johnson"
     }
-]
+  ]
+}
