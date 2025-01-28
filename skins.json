@@ -12,7 +12,7 @@
       "id": "skin2",
       "name": "Classic Darl",
       "image_url": "https://raw.githubusercontent.com/StikEMU/StikNES-Site/refs/heads/main/Skins/NeoDark.png",
-      "category": "horizontal",
+      "category": "vertical",
       "description": "A classic dark skin.",
       "creator": "neoarz"
     }
