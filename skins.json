@@ -23,6 +23,14 @@
       "category": "vertical",
       "description": "The official and defualt vertical skin for StikNES.",
       "creator": "0-Blu & neoarz"
+    },
+    {
+      "id": "skin4",
+      "name": "StikNES Horizontal",
+      "image_url": "https://raw.githubusercontent.com/StikEMU/StikNES-Site/refs/heads/main/Skins/StikNES_Horizontal.png",
+      "category": "horizontal",
+      "description": "The official and defualt horizontal skin for StikNES.",
+      "creator": "0-Blu"
     }
   ]
 }
