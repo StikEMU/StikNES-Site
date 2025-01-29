@@ -15,6 +15,14 @@
       "category": "vertical",
       "description": "A classic dark skin.",
       "creator": "neoarz"
+    },
+    {
+      "id": "skin3",
+      "name": "StikNES Vertical",
+      "image_url": "https://raw.githubusercontent.com/StikEMU/StikNES-Site/refs/heads/main/Skins/StikNES_Vertical.png",
+      "category": "vertical",
+      "description": "The official and defualt vertical skin for StikNES.",
+      "creator": "0-Blu & neoarz"
     }
   ]
 }
