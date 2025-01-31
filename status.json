@@ -1,4 +1,6 @@
 {
   "value": true,
-  "error": null
+  "error": null,
+  "latest_version": "2.0.0B50",
+  "update_url": "https://testflight.apple.com/join/bzkNAfHj"
 }
