@@ -923,6 +923,30 @@ section h2 i {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-3px); }
 }
+
+/* Blog Section Specific Styling */
+#blog {
+    margin-bottom: 3rem;
+}
+#blog article {
+    margin-bottom: 1.5rem;
+}
+#blog article h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+#blog article p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+#blog article a {
+    color: var(--primary-color);
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+#blog article a:hover {
+    color: var(--primary-hover);
+}
     </style>
     <script>
         function openSubmitPopup() {
@@ -1025,225 +1049,241 @@ section h2 i {
             <p>Download on the <strong><a href="https://apps.apple.com/us/app/stiknes/id6737158545">App Store</a></strong>.</p>
         </div>
     </div>
-   <!--     <section>
-            <h2><i class="ri-movie-2-line"></i> App Trailer</h2>
-            <div class="dropdown">
-                <h3 onclick="toggleDropdown('trailer')"><i class="ri-play-circle-line"></i> Watch Trailer</h3>
-                <div class="dropdown-content" id="trailer">
-                    <video controls>
-                        <source src="website/trailer.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+    
+    <section id="blog">
+        <h2><i class="ri-pencil-line"></i> Blog</h2>
+        <div class="dropdown">
+            <h3 onclick="toggleDropdown('blogPosts')"><i class="ri-news-line"></i> View Latest Posts</h3>
+            <div class="dropdown-content" id="blogPosts">
+                <article class="blog-post">
+                    <h3>Update: Placeholder</h3>
+                    <p>This is a test.</p>
+                    <a href="/blog/stiknes-v2-beta">Read more</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!--
+    <section>
+        <h2><i class="ri-movie-2-line"></i> App Trailer</h2>
+        <div class="dropdown">
+            <h3 onclick="toggleDropdown('trailer')"><i class="ri-play-circle-line"></i> Watch Trailer</h3>
+            <div class="dropdown-content" id="trailer">
+                <video controls>
+                    <source src="website/trailer.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+    -->
+    <section>
+        <h2><i class="ri-image-2-line"></i> Screenshots</h2>
+        <div class="dropdown">
+            <h3 onclick="toggleDropdown('screenshots')"><i class="ri-gallery-line"></i> View Screenshots</h3>
+            <div class="dropdown-content" id="screenshots">
+                <div class="screenshot-grid">
+                    <img src="Website/screenshot1.png" alt="Screenshot 1">
+                    <img src="Website/screenshot2.png" alt="Screenshot 2">
+                    <img src="Website/screenshot3.png" alt="Screenshot 3">
                 </div>
             </div>
-        </section>-->
+        </div>
+    </section>
 
-        <section>
-            <h2><i class="ri-image-2-line"></i> Screenshots</h2>
-            <div class="dropdown">
-                <h3 onclick="toggleDropdown('screenshots')"><i class="ri-gallery-line"></i> View Screenshots</h3>
-                <div class="dropdown-content" id="screenshots">
-                    <div class="screenshot-grid">
-                        <img src="Website/screenshot1.png" alt="Screenshot 1">
-                        <img src="Website/screenshot2.png" alt="Screenshot 2">
-                        <img src="Website/screenshot3.png" alt="Screenshot 3">
-                    </div>
-                </div>
+    <section>
+        <h2><i class="ri-shield-keyhole-line"></i> Privacy Policy</h2>
+        <div class="dropdown">
+            <h3 onclick="toggleDropdown('privacy')"><i class="ri-lock-line"></i> View Privacy Policy</h3>
+            <div class="dropdown-content" id="privacy">
+                <p>
+                    StikNES respects your privacy. We do not collect or store any personal data unless you explicitly provide it, outside of what Apple automatically collects. 
+                    All emulator usage is handled locally on your device. Our website is hosted on GitHub Pages and protected by Cloudflare, ensuring a secure and reliable browsing experience. 
+                    The app loads announcements, error messages, and a killswitch to turn off the app from a JSON file hosted on our website.
+                </p>
+                <p>
+                    For more details, please join our <a href="https://discord.gg/VA6syDVdP5">Discord.</a>
+                </p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section>
-            <h2><i class="ri-shield-keyhole-line"></i> Privacy Policy</h2>
-            <div class="dropdown">
-                <h3 onclick="toggleDropdown('privacy')"><i class="ri-lock-line"></i> View Privacy Policy</h3>
-                <div class="dropdown-content" id="privacy">
-                    <p>
-                        StikNES respects your privacy. We do not collect or store any personal data unless you explicitly provide it, outside of what Apple automatically collects. 
-                        All emulator usage is handled locally on your device. Our website is hosted on GitHub Pages and protected by Cloudflare, ensuring a secure and reliable browsing experience. 
-                        The app loads announcements, error messages, and a killswitch to turn off the app from a JSON file hosted on our website.
-                    </p>
-                    <p>
-                        For more details, please join our <a href="https://discord.gg/VA6syDVdP5">Discord.</a>
-                    </p>
-                </div>
+    <section>
+        <h2><i class="ri-customer-service-2-line"></i> Support</h2>
+        <div class="dropdown">
+            <h3 onclick="toggleDropdown('support')"><i class="ri-question-line"></i> Get Support</h3>
+            <div class="dropdown-content" id="support">
+                <p>
+                    Need help or have questions? Join our official Discord server to connect with the community and get assistance.
+                </p>
+                <p>
+                    <a href="https://discord.gg/VA6syDVdP5" target="_blank">Join our Discord</a>
+                </p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section>
-            <h2><i class="ri-customer-service-2-line"></i> Support</h2>
-            <div class="dropdown">
-                <h3 onclick="toggleDropdown('support')"><i class="ri-question-line"></i> Get Support</h3>
-                <div class="dropdown-content" id="support">
-                    <p>
-                        Need help or have questions? Join our official Discord server to connect with the community and get assistance.
-                    </p>
-                    <p>
-                        <a href="https://discord.gg/VA6syDVdP5" target="_blank">Join our Discord</a>
-                    </p>
-                </div>
+    <section>
+        <h2><i class="ri-app-store-line"></i> Download on the App Store</h2>
+        <div class="dropdown">
+            <h3 onclick="toggleDropdown('download')"><i class="ri-information-line"></i> Learn More</h3>
+            <div class="dropdown-content" id="download">
+                <p>Download on the <strong><a href="https://apps.apple.com/us/app/stiknes/id6737158545">App Store</a></strong>.</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section>
-            <h2><i class="ri-app-store-line"></i> Download on the App Store</h2>
-            <div class="dropdown">
-                <h3 onclick="toggleDropdown('download')"><i class="ri-information-line"></i> Learn More</h3>
-                <div class="dropdown-content" id="download">
-                    <p>Download on the <strong><a href="https://apps.apple.com/us/app/stiknes/id6737158545">App Store</a></strong>.</p>
-                </div>
+    <section>
+        <h2><i class="ri-device-line"></i> Device Compatibility & Requirements</h2>
+        <div class="dropdown">
+            <h3 onclick="toggleDropdown('devices')"><i class="ri-smartphone-line"></i> Supported Devices</h3>
+            <div class="dropdown-content" id="devices">
+                <ul>
+                    <li>iPhone SE (2nd generation) and newer</li>
+                    <li>iPhone XS and newer</li>
+                    <li>iPad (6th generation) and newer</li>
+                    <li>iPad Air (3rd generation) and newer</li>
+                    <li>iPad Pro (3rd generation) and newer</li>
+                    <li>iPad Mini (5th generation) and newer</li>
+                </ul>
             </div>
-        </section>
+            <h3 onclick="toggleDropdown('requirements')"><i class="ri-settings-3-line"></i> Operating System Requirements</h3>
+            <div class="dropdown-content" id="requirements">
+                <p>StikNES requires iOS 17.0 or later.</p>
+            </div>
+            <h3 onclick="toggleDropdown('limitations')"><i class="ri-error-warning-line"></i> Known Limitations</h3>
+            <div class="dropdown-content" id="limitations">
+                <ul>
+                    <li>Older devices may experience performance issues and require more testing.</li>
+                    <li>Emulation accuracy may vary depending on the game.</li>
+                    <li>AirPlay support is planned for future releases but is not currently available.</li>
+                </ul>
+            </div>
+            <h3 onclick="toggleDropdown('systemSupport')"><i class="ri-gamepad-line"></i>Current System Support</h3>
+            <div class="dropdown-content" id="systemSupport">
+                <p>Currently Supported: <strong>NES</strong></p>
+                <p>Coming Soon: <strong>Flash</strong></p>
+            </div>
+        </div>
+    </section>
 
+    <section>
+        <h2><i class="ri-gamepad-line"></i> Software Compatibility</h2>
+        <div class="dropdown">
+            <h3 onclick="toggleDropdown('highCompatibility')"><i class="ri-check-double-line"></i> High Compatibility and Performance</h3>
+            <div class="dropdown-content" id="highCompatibility">
+                <ul>
+                    <li>Super Mario Bros. 3</li>
+                    <li>Contra</li>
+                    <li>Tetris</li>
+                    <li>Super Tecmo Bowl</li>
+                    <li>Chessnovice</li>
+                    <li>The Legend of Zelda</li>
+                    <li>Zelda II: The Adventure of Link</li>
+                    <li>Dr. Mario</li>
+                    <li>Dirty Harry</li>
+                    <li>Excitebike</li>
+                </ul>
+            </div>
+        </div>
+        <div class="dropdown">
+            <h3 onclick="toggleDropdown('moderateCompatibility')"><i class="ri-error-warning-line"></i> Moderate Compatibility</h3>
+            <div class="dropdown-content" id="moderateCompatibility">
+                <ul>
+                    <li>Super Mario Bros. - Game runs at 2x speed.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="dropdown">
+            <h3 onclick="toggleDropdown('lowCompatibility')"><i class="ri-close-circle-line"></i> Low Compatibility</h3>
+            <div class="dropdown-content" id="lowCompatibility">
+                <ul>
+                    <li>Super Mario Bros. + Duck Hunt - Does not boot.</li>
+                    <li>Mike Tyson's Punch-Out!! - Does not boot.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section>
         <section>
-            <h2><i class="ri-device-line"></i> Device Compatibility & Requirements</h2>
+            <h2><i class="ri-github-fill"></i> GitHub</h2>
             <div class="dropdown">
-                <h3 onclick="toggleDropdown('devices')"><i class="ri-smartphone-line"></i> Supported Devices</h3>
-                <div class="dropdown-content" id="devices">
+                <h3 onclick="toggleDropdown('githubLinks')"><i class="ri-links-line"></i> GitHub Links</h3>
+                <div class="dropdown-content" id="githubLinks">
                     <ul>
-                        <li>iPhone SE (2nd generation) and newer</li>
-                        <li>iPhone XS and newer</li>
-                        <li>iPad (6th generation) and newer</li>
-                        <li>iPad Air (3rd generation) and newer</li>
-                        <li>iPad Pro (3rd generation) and newer</li>
-                        <li>iPad Mini (5th generation) and newer</li>
+                        <li><a href="https://github.com/StikEMU/StikNES-2.0" target="_blank">Source Code</a></li>
+                        <li><a href="https://github.com/StikEMU/StikNES-2.0/issues" target="_blank">Submit a Bug</a></li>
                     </ul>
                 </div>
-                <h3 onclick="toggleDropdown('requirements')"><i class="ri-settings-3-line"></i> Operating System Requirements</h3>
-                <div class="dropdown-content" id="requirements">
-                    <p>StikNES requires iOS 17.0 or later.</p>
-                </div>
-                <h3 onclick="toggleDropdown('limitations')"><i class="ri-error-warning-line"></i> Known Limitations</h3>
-                <div class="dropdown-content" id="limitations">
-                    <ul>
-                        <li>Older devices may experience performance issues and require more testing.</li>
-                        <li>Emulation accuracy may vary depending on the game.</li>
-                        <li>AirPlay support is planned for future releases but is not currently available.</li>
-                    </ul>
-                </div>
-                <h3 onclick="toggleDropdown('systemSupport')"><i class="ri-gamepad-line"></i>Current System Support</h3>
-                <div class="dropdown-content" id="systemSupport">
-                    <p>Currently Supported: <strong>NES</strong></p>
-                    <p>Coming Soon: <strong>Flash</strong></p>
-                </div>
             </div>
         </section>
-
-        <section>
-            <h2><i class="ri-gamepad-line"></i> Software Compatibility</h2>
-            <div class="dropdown">
-                <h3 onclick="toggleDropdown('highCompatibility')"><i class="ri-check-double-line"></i> High Compatibility and Performance</h3>
-                <div class="dropdown-content" id="highCompatibility">
-                    <ul>
-                        <li>Super Mario Bros. 3</li>
-                        <li>Contra</li>
-                        <li>Tetris</li>
-                        <li>Super Tecmo Bowl</li>
-                        <li>Chessnovice</li>
-                        <li>The Legend of Zelda</li>
-                        <li>Zelda II: The Adventure of Link</li>
-                        <li>Dr. Mario</li>
-                        <li>Dirty Harry</li>
-                        <li>Excitebike</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="dropdown">
-                <h3 onclick="toggleDropdown('moderateCompatibility')"><i class="ri-error-warning-line"></i> Moderate Compatibility</h3>
-                <div class="dropdown-content" id="moderateCompatibility">
-                    <ul>
-                        <li>Super Mario Bros. - Game runs at 2x speed.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="dropdown">
-                <h3 onclick="toggleDropdown('lowCompatibility')"><i class="ri-close-circle-line"></i> Low Compatibility</h3>
-                <div class="dropdown-content" id="lowCompatibility">
-                    <ul>
-                        <li>Super Mario Bros. + Duck Hunt - Does not boot.</li>
-                        <li>Mike Tyson's Punch-Out!! - Does not boot.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        <section>
-            <section>
-                <h2><i class="ri-github-fill"></i> GitHub</h2>
-                <div class="dropdown">
-                    <h3 onclick="toggleDropdown('githubLinks')"><i class="ri-links-line"></i> GitHub Links</h3>
-                    <div class="dropdown-content" id="githubLinks">
-                        <ul>
-                            <li><a href="https://github.com/StikEMU/StikNES-2.0" target="_blank">Source Code</a></li>
-                            <li><a href="https://github.com/StikEMU/StikNES-2.0/issues" target="_blank">Submit a Bug</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
         
-            <section>
-                <div class="roadmap-section">
-                    <h2>
-                        <button class="roadmap-toggle">
-                            <i class="ri-road-map-line"></i>
-                            Development Roadmap
-                            <i class="ri-arrow-down-s-line" style="margin-left: auto;"></i>
-                        </button>
-                    </h2>
-                    <div class="roadmap-timeline">
-                        <div class="roadmap-item">
-                            <div class="roadmap-header">
-                                <i class="ri-rocket-line roadmap-icon"></i>
-                                <h3 class="roadmap-title">Version 2.0.0 Features</h3>
-                                <span class="roadmap-status">
-                                    <i class="ri-time-line"></i>
-                                    <span>In Progress</span>
-                                </span>
-                            </div>
-                            <div class="roadmap-content">
-                                <ul class="roadmap-list">
-                                    <li>
-                                        <i class="ri-brush-line"></i>
-                                        <span>Custom controller skins for enhanced visual customization</span>
-                                    </li>
-                                    <li>
-                                        <i class="ri-broadcast-line"></i>
-                                        <span>AirPlay support for big-screen gaming experience</span>
-                                    </li>
-                                    <li>
-                                        <i class="ri-shield-check-line"></i>
-                                        <span>Enhanced security measures and middleware improvements</span>
-                                    </li>
-                                </ul>
-                            </div>
+        <section>
+            <div class="roadmap-section">
+                <h2>
+                    <button class="roadmap-toggle">
+                        <i class="ri-road-map-line"></i>
+                        Development Roadmap
+                        <i class="ri-arrow-down-s-line" style="margin-left: auto;"></i>
+                    </button>
+                </h2>
+                <div class="roadmap-timeline">
+                    <div class="roadmap-item">
+                        <div class="roadmap-header">
+                            <i class="ri-rocket-line roadmap-icon"></i>
+                            <h3 class="roadmap-title">Version 2.0.0 Features</h3>
+                            <span class="roadmap-status">
+                                <i class="ri-time-line"></i>
+                                <span>In Progress</span>
+                            </span>
                         </div>
-                        
-                        <div class="roadmap-item">
-                            <div class="roadmap-header">
-                                <i class="ri-flashlight-line roadmap-icon"></i>
-                                <h3 class="roadmap-title">Future Enhancements</h3>
-                                <span class="roadmap-status">
-                                    <i class="ri-calendar-line"></i>
-                                    <span>Future</span>
-                                </span>
-                            </div>
-                            <div class="roadmap-content">
-                                <ul class="roadmap-list">
-                                    <li>
-                                        <i class="ri-gamepad-line"></i>
-                                        <span>Additional system compatibility</span>
-                                    </li>
-                                    <li>
-                                        <i class="ri-cloud-line"></i>
-                                        <span>Cloud save synchronization</span>
-                                    </li>
-                                    <li>
-                                        <i class="ri-team-line"></i>
-                                        <span>Multiplayer support</span>
-                                    </li>
-                                </ul>
-                            </div>
+                        <div class="roadmap-content">
+                            <ul class="roadmap-list">
+                                <li>
+                                    <i class="ri-brush-line"></i>
+                                    <span>Custom controller skins for enhanced visual customization</span>
+                                </li>
+                                <li>
+                                    <i class="ri-broadcast-line"></i>
+                                    <span>AirPlay support for big-screen gaming experience</span>
+                                </li>
+                                <li>
+                                    <i class="ri-shield-check-line"></i>
+                                    <span>Enhanced security measures and middleware improvements</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="roadmap-item">
+                        <div class="roadmap-header">
+                            <i class="ri-flashlight-line roadmap-icon"></i>
+                            <h3 class="roadmap-title">Future Enhancements</h3>
+                            <span class="roadmap-status">
+                                <i class="ri-calendar-line"></i>
+                                <span>Future</span>
+                            </span>
+                        </div>
+                        <div class="roadmap-content">
+                            <ul class="roadmap-list">
+                                <li>
+                                    <i class="ri-gamepad-line"></i>
+                                    <span>Additional system compatibility</span>
+                                </li>
+                                <li>
+                                    <i class="ri-cloud-line"></i>
+                                    <span>Cloud save synchronization</span>
+                                </li>
+                                <li>
+                                    <i class="ri-team-line"></i>
+                                    <span>Multiplayer support</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
         <footer>
             <p>
