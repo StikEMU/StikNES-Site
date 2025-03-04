@@ -1190,6 +1190,19 @@ section h2 i {
             
             content.classList.toggle('show');
         }
+        
+        function toggleBlogPost(headerElement) {
+            // Find the closest .blog-body within the same article
+            const blogBody = headerElement.parentNode.querySelector('.blog-body');
+            const icon = headerElement.querySelector('.toggle-icon');
+            if (blogBody.style.display === "none" || blogBody.style.display === "") {
+                blogBody.style.display = "block";
+                icon.textContent = "-";
+            } else {
+                blogBody.style.display = "none";
+                icon.textContent = "+";
+            }
+        }
 
         function updateCountdown() {
             const releaseDate = new Date("2025-03-01T00:00:00").getTime();
@@ -1266,21 +1279,19 @@ section h2 i {
         </div>
     </div>
     
-
-
-
-
     <section id="blog">
-        <h2><i class="ri-pencil-line"></i> Blog</h2>
-        <div class="dropdown">
-            <h3 onclick="toggleDropdown('blog-posts')"><i class="ri-article-line"></i> View Latest Posts</h3>
-            <div class="dropdown-content" id="blog-posts">
-                <div class="blog-container">
-                    <article class="blog-post">
-                        <div class="blog-header">
-                            <i class="ri-megaphone-line blog-icon"></i>
-                            <h3 class>Weekly Dev Log #2</h3>
-                        </div>
+    <h2><i class="ri-pencil-line"></i> Blog</h2>
+    <div class="dropdown">
+        <h3 onclick="toggleDropdown('blog-posts')"><i class="ri-article-line"></i> View Latest Posts</h3>
+        <div class="dropdown-content" id="blog-posts">
+            <div class="blog-container">
+                <article class="blog-post">
+                    <div class="blog-header" onclick="toggleBlogPost(this)">
+                        <i class="ri-megaphone-line blog-icon"></i>
+                        <h3>Weekly Dev Log #2</h3>
+                        <span class="toggle-icon" style="margin-left:auto;">+</span>
+                    </div>
+                    <div class="blog-body" style="display: none;">
                         <div class="blog-meta">
                             <span><i class="ri-calendar-line"></i> March 03, 2025</span>
                             <span><i class="ri-user-line"></i> Stephen</span>
@@ -1326,13 +1337,16 @@ section h2 i {
                         <div class="blog-footer">
                             <span class="blog-signature">— Stephen</span>
                         </div>
-                    </article>
-                    
-                    <article class="blog-post">
-                        <div class="blog-header">
-                            <i class="ri-megaphone-line blog-icon"></i>
-                            <h3>Weekly Dev Log #1</h3>
-                        </div>
+                    </div>
+                </article>
+                
+                <article class="blog-post">
+                    <div class="blog-header" onclick="toggleBlogPost(this)">
+                        <i class="ri-megaphone-line blog-icon"></i>
+                        <h3>Weekly Dev Log #1</h3>
+                        <span class="toggle-icon" style="margin-left:auto;">+</span>
+                    </div>
+                    <div class="blog-body" style="display: none;">
                         <div class="blog-meta">
                             <span><i class="ri-calendar-line"></i> February 23, 2025</span>
                             <span><i class="ri-user-line"></i> Stephen</span>
@@ -1377,16 +1391,12 @@ section h2 i {
                         <div class="blog-footer">
                             <span class="blog-signature">— Stephen</span>
                         </div>
-                    </article>
-                </div>
+                    </div>
+                </article>
             </div>
         </div>
-    </section>
-
-
-
-
-
+    </div>
+</section>
     <!--
     <section>
         <h2><i class="ri-movie-2-line"></i> App Trailer</h2>
