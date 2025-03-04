@@ -2,133 +2,491 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>StikNES Blog</title>
-  <!-- Remix Icon CDN for share icon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- Remix Icon for icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+  <meta name="description" content="StikNES Blog – Weekly Development Logs and Updates">
+  <meta name="keywords" content="StikNES, Blog, Dev Log, NES Emulator, SwiftUI, iOS">
+  <meta name="author" content="StikNES">
   <style>
-    /* Basic reset */
-    body, h1, h2, h3, p, article, header, footer, div {
+    /* Full CSS from the main site */
+    :root {
+      --primary-color: #6366f1;
+      --primary-hover: #818cf8;
+      --background-dark: #0f172a;
+      --surface-dark: #1e293b;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --border-color: #334155;
+      --accent-gradient: linear-gradient(135deg, #6366f1, #3b82f6);
+      --hover-gradient: linear-gradient(135deg, #818cf8, #60a5fa);
+      --shadow-color: rgba(30, 41, 59, 0.5);
+      --font-heading: 'Poppins', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-    /* Global styles */
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f8f8f8;
-      color: #333;
+      background-color: var(--background-dark);
+      color: var(--text-primary);
       line-height: 1.6;
+      font-family: var(--font-body);
     }
+
     header {
-      background: #1e293b;
-      padding: 20px;
+      background: var(--surface-dark);
+      padding: 2rem;
       text-align: center;
-      color: #fff;
-    }
-    header h1 {
-      font-size: 2.5em;
-    }
-    .container {
+      border-bottom: 1px solid var(--border-color);
       max-width: 800px;
-      margin: 20px auto;
+      margin: 0 auto;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px var(--shadow-color);
+      transform: translateY(0);
+      transition: transform 0.3s ease;
+    }
+
+    header:hover {
+      transform: translateY(-4px);
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: titleGlow 2s ease-in-out infinite alternate, pulseScale 6s ease-in-out infinite;
+      text-shadow: 0 2px 4px var(--shadow-color);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    header h1:hover {
+      transform: scale(1.1);
+    }
+
+    main {
+      max-width: 800px;
+      margin: 40px auto;
       padding: 0 20px;
     }
-    /* Blog post styles */
-    .blog-post {
-      background: #fff;
-      margin-bottom: 20px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    /* Blog Section */
+    #blog {
+      margin-bottom: 3rem;
     }
-    .blog-header {
-      background: #f1f1f1;
-      padding: 15px;
-      cursor: pointer;
+    #blog h2 {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      font-size: 1.8rem;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid var(--primary-color);
+      transition: border-color 0.3s ease;
     }
+
+    #blog h2:hover {
+      border-color: var(--primary-hover);
+    }
+
+    .blog-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      width: 100%;
+    }
+
+    .blog-post {
+      background: var(--surface-dark);
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 24px var(--shadow-color);
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+      width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    .blog-post:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px var(--shadow-color);
+      border-color: var(--primary-color);
+    }
+
+    .blog-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      cursor: pointer;
+      position: relative;
+    }
+
     .blog-header h3 {
       margin: 0;
-      font-size: 1.5em;
+      flex: 1;
+      min-width: 200px;
+      font-family: var(--font-heading);
     }
+
+    .blog-icon {
+      font-size: 1.8rem;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
     .toggle-icon {
-      font-size: 1.5em;
+      font-size: 1.5rem;
       margin-left: auto;
     }
+
     .share-button {
       cursor: pointer;
       margin-left: 10px;
-      font-size: 1.2em;
-      color: #007BFF;
+      font-size: 1.2rem;
+      color: var(--primary-color);
     }
+
     .blog-body {
       display: none;
-      padding: 15px;
     }
+
     .blog-meta {
-      font-size: 0.9em;
-      color: #888;
-      margin-bottom: 10px;
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.2rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.8rem;
+      flex-wrap: wrap;
+      font-family: var(--font-body);
     }
+
+    .blog-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .blog-content {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      max-width: 100%;
+      font-family: var(--font-body);
+    }
+
+    .blog-content p {
+      margin-bottom: 1rem;
+    }
+
+    .blog-content strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 1rem;
+      margin: 1.5rem 0;
+      padding: 1rem;
+      background: rgba(99, 102, 241, 0.1);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      flex-wrap: nowrap;
+      width: auto;
+      max-width: 100%;
+    }
+
+    .feature-content {
+      flex: 1;
+      min-width: 0; 
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .feature-text {
+      display: inline-block;
+      max-width: 100%;
+      word-break: break-word;
+      hyphens: auto;
+    }
+
+    .feature-item:hover {
+      background: rgba(99, 102, 241, 0.15);
+      transform: translateX(4px);
+    }
+
+    .feature-item i {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .feature-item h4 {
+      margin: 0 0 0.6rem 0;
+      color: var(--text-primary);
+      font-size: 1.1rem;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.8rem 0 0 0;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .feature-list li {
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: 0.8rem;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      max-width: calc(100% - 1.5rem);
+    }
+
+    .feature-list li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    .blog-footer {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+      text-align: right;
+      font-family: var(--font-body);
+    }
+
+    .blog-signature {
+      font-style: italic;
+      color: var(--text-primary);
+    }
+
     footer {
+      background-color: var(--surface-dark);
+      padding: 2rem;
       text-align: center;
-      font-size: 0.8em;
-      color: #aaa;
-      padding: 20px;
+      color: var(--text-secondary);
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: 16px;
+      box-shadow: 0 -4px 16px var(--shadow-color);
+      font-family: var(--font-body);
+    }
+
+    /* Animations */
+    @keyframes titleGlow {
+      0% {
+        text-shadow: 0 0 15px rgba(99, 102, 241, 0.2), 0 0 30px rgba(99, 102, 241, 0.4);
+      }
+      100% {
+        text-shadow: 0 0 25px rgba(99, 102, 241, 0.6), 0 0 50px rgba(99, 102, 241, 0.8);
+      }
+    }
+
+    @keyframes pulseScale {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+    
+    /* Responsive adjustments */
+    @media screen and (max-width: 768px) {
+      .blog-post {
+        padding: 1.2rem;
+      }
+      
+      .blog-meta {
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+      
+      .feature-item {
+        flex-direction: column;
+        gap: 0.6rem;
+        padding: 0.8rem;
+      }
+      
+      .feature-item i {
+        font-size: 1.3rem;
+      }
+      
+      .blog-header h3 {
+        font-size: 1.2rem;
+      }
+      
+      .feature-list li {
+        padding-left: 1.2rem;
+        max-width: calc(100% - 1.2rem);
+      }
+      
+      .feature-content, .blog-content {
+        width: 100%;
+      }
+      
+      .feature-list li span {
+        display: inline-block;
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>StikNES Blog</h1>
+    <div class="logo-container">
+      <img src="Website/logo.png" alt="StikNES Logo" class="logo" style="width:50px;height:50px;border-radius:50%;object-fit:cover;border:2px solid var(--primary-color);box-shadow:0 0 15px rgba(99,102,241,0.3);">
+      <h1>StikNES Blog</h1>
+    </div>
   </header>
-  <div class="container">
-    <!-- Blog Post 1 -->
-    <article class="blog-post" id="weekly-dev-log-2">
-      <div class="blog-header" onclick="toggleBlogPost(this)">
-        <h3>Weekly Dev Log #2</h3>
-        <span class="toggle-icon">+</span>
-        <span class="share-button" onclick="copyBlogLink(event, 'weekly-dev-log-2')" title="Share this post">
-          <i class="ri-share-line"></i>
-        </span>
-      </div>
-      <div class="blog-body">
-        <div class="blog-meta">March 03, 2025 | by Stephen</div>
-        <div class="blog-content">
-          <p>Hey everyone! Here's a quick update on what I've been working on. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros eget tellus tristique bibendum.</p>
-          <p>[Additional content for Weekly Dev Log #2]</p>
-        </div>
-      </div>
-    </article>
+  <main>
+    <section id="blog">
+      <h2><i class="ri-pencil-line"></i> Blog</h2>
+      <div class="blog-container">
+        <!-- Blog Post 1: Weekly Dev Log #2 -->
+        <article class="blog-post" id="weekly-dev-log-2">
+          <div class="blog-header" onclick="toggleBlogPost(this)">
+            <i class="ri-megaphone-line blog-icon"></i>
+            <h3>Weekly Dev Log #2</h3>
+            <span class="toggle-icon" style="margin-left:auto;">+</span>
+            <span class="share-button" onclick="copyBlogLink(event, 'weekly-dev-log-2')" title="Share this post">
+              <i class="ri-share-line"></i>
+            </span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span><i class="ri-calendar-line"></i> March 03, 2025</span>
+              <span><i class="ri-user-line"></i> Stephen</span>
+            </div>
+            <div class="blog-content">
+              <p>Hey everyone!</p>
+              <p>Here's a quick update on what I've been working on:</p>
+              <div class="feature-item">
+                <i class="ri-flashlight-line"></i>
+                <div class="feature-content">
+                  <h4>Flash Core Progress</h4>
+                  <p>Almost finished! The last major feature I need to add is a <strong>virtual mouse</strong> for pointer-based games.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <i class="ri-display-line"></i>
+                <div class="feature-content">
+                  <h4>CRT Filters</h4>
+                  <p>Getting close! They worked fine in the <strong>simulator</strong>, but I need to rework some of the code to ensure they function properly on <strong>real devices</strong>. Hoping to wrap this up by the <strong>end of the week</strong>.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <i class="ri-book-open-line"></i>
+                <div class="feature-content">
+                  <h4>Busy Week Ahead</h4>
+                  <p>I've got <strong>three exams</strong> and a <strong>paper</strong> to focus on, so development might be a bit slower for now.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <i class="ri-team-line"></i>
+                <div class="feature-content">
+                  <h4>Welcome to New Discord Members!</h4>
+                  <p>Also, a huge <strong>welcome</strong> to all the new members who've joined the Discord server! 🎉 Glad to have you here.</p>
+                </div>
+              </div>
+              <p>That's it for now—see you all soon! 🚀</p>
+            </div>
+            <div class="blog-footer">
+              <span class="blog-signature">— Stephen</span>
+            </div>
+          </div>
+        </article>
 
-    <!-- Blog Post 2 -->
-    <article class="blog-post" id="weekly-dev-log-1">
-      <div class="blog-header" onclick="toggleBlogPost(this)">
-        <h3>Weekly Dev Log #1</h3>
-        <span class="toggle-icon">+</span>
-        <span class="share-button" onclick="copyBlogLink(event, 'weekly-dev-log-1')" title="Share this post">
-          <i class="ri-share-line"></i>
-        </span>
+        <!-- Blog Post 2: Weekly Dev Log #1 -->
+        <article class="blog-post" id="weekly-dev-log-1">
+          <div class="blog-header" onclick="toggleBlogPost(this)">
+            <i class="ri-megaphone-line blog-icon"></i>
+            <h3>Weekly Dev Log #1</h3>
+            <span class="toggle-icon" style="margin-left:auto;">+</span>
+            <span class="share-button" onclick="copyBlogLink(event, 'weekly-dev-log-1')" title="Share this post">
+              <i class="ri-share-line"></i>
+            </span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span><i class="ri-calendar-line"></i> February 23, 2025</span>
+              <span><i class="ri-user-line"></i> Stephen</span>
+            </div>
+            <div class="blog-content">
+              <p>Hey everyone!</p>
+              <p>I'm excited to announce that I'll be moving back to <strong>weekly dev logs</strong> every <strong>Sunday</strong>! To kick things off, I have some major updates to share:</p>
+              <div class="feature-item">
+                <i class="ri-rocket-line"></i>
+                <div class="feature-content">
+                  <h4>Upcoming Features</h4>
+                  <ul class="feature-list">
+                    <li><span class="feature-text"><strong>Flash Core Development:</strong> Starting tomorrow (or sometime this week), I'll begin work on adding a <strong>Flash Core</strong>. Stay tuned for updates on this exciting addition!</span></li>
+                    <li><span class="feature-text"><strong>StikNES is Coming to Android!</strong> Big news—I've officially purchased an Android phone for development purposes. This means <strong>StikNES</strong> will soon be available on Android devices!</span></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="feature-item">
+                <i class="ri-smartphone-line"></i>
+                <div class="feature-content">
+                  <h4>StikNES Version 2.0.2</h4>
+                  <p>The latest version of StikNES (<strong>2.0.2</strong>) has been submitted to the <strong>App Store</strong>. Here's what's new:</p>
+                  <ul class="feature-list">
+                    <li><span class="feature-text">Improved <strong>stability</strong> for a smoother experience.</span></li>
+                    <li><span class="feature-text">Removed the <strong>network requirement</strong>—play offline anytime!</span></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="feature-item">
+                <i class="ri-team-line"></i>
+                <div class="feature-content">
+                  <h4>Welcome to All New Discord Members!</h4>
+                  <p>A warm welcome to everyone who joined the Discord this week! I'm glad to have you here and can't wait to share more exciting updates soon.</p>
+                </div>
+              </div>
+              <p>Stay tuned—there's a lot more cool stuff on the way!</p>
+            </div>
+            <div class="blog-footer">
+              <span class="blog-signature">— Stephen</span>
+            </div>
+          </div>
+        </article>
       </div>
-      <div class="blog-body">
-        <div class="blog-meta">February 23, 2025 | by Stephen</div>
-        <div class="blog-content">
-          <p>Hey everyone! I'm excited to announce that I'll be moving back to weekly dev logs. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <p>[Additional content for Weekly Dev Log #1]</p>
-        </div>
-      </div>
-    </article>
-  </div>
+    </section>
+  </main>
   <footer>
-    <p>© 2025 StikNES Blog. All rights reserved.</p>
+    <p>
+      Disclaimer: StikNES is not affiliated with Nintendo. All trademarks and game console names are the property of Nintendo Co., Ltd.
+    </p>
+    <p>
+      All website content, code, and assets (except for the skins) are licensed under the <a href="https://github.com/StikEMU/StikNES-Site/blob/main/LICENSE" target="_blank">MIT License</a>.
+    </p>
+    <p>
+      © 2025 StikNES. All rights reserved.
+    </p>
   </footer>
 
   <script>
-    // Toggle blog post collapse/expand
+    // Toggle the visibility of an individual blog post
     function toggleBlogPost(headerElement) {
       const blogBody = headerElement.parentNode.querySelector('.blog-body');
       const icon = headerElement.querySelector('.toggle-icon');
@@ -141,9 +499,9 @@
       }
     }
 
-    // Copy shareable blog link to clipboard
+    // Copy a direct link to the blog post (including its fragment identifier)
     function copyBlogLink(e, blogId) {
-      // Prevent the blog post toggle from triggering
+      // Prevent the toggleBlogPost event from firing
       e.stopPropagation();
       const link = window.location.origin + window.location.pathname + '#' + blogId;
       navigator.clipboard.writeText(link).then(function() {
@@ -153,7 +511,7 @@
       });
     }
 
-    // Automatically open a blog post if the URL fragment matches its id
+    // On page load, check if a fragment exists and open the matching blog post
     document.addEventListener('DOMContentLoaded', function () {
       const hash = window.location.hash.substring(1);
       if (hash) {
