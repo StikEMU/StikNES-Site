@@ -1191,18 +1191,48 @@ section h2 i {
             content.classList.toggle('show');
         }
         
-        function toggleBlogPost(headerElement) {
-            // Find the closest .blog-body within the same article
-            const blogBody = headerElement.parentNode.querySelector('.blog-body');
-            const icon = headerElement.querySelector('.toggle-icon');
-            if (blogBody.style.display === "none" || blogBody.style.display === "") {
-                blogBody.style.display = "block";
-                icon.textContent = "-";
-            } else {
-                blogBody.style.display = "none";
-                icon.textContent = "+";
-            }
+// Toggles the visibility of the blog post body
+function toggleBlogPost(headerElement) {
+    const blogBody = headerElement.parentNode.querySelector('.blog-body');
+    const icon = headerElement.querySelector('.toggle-icon');
+    if (blogBody.style.display === "none" || blogBody.style.display === "") {
+        blogBody.style.display = "block";
+        icon.textContent = "-";
+    } else {
+        blogBody.style.display = "none";
+        icon.textContent = "+";
+    }
+}
+
+// Copies the direct link to the blog post to the clipboard
+        function copyBlogLink(e, blogId) {
+            // Prevent the toggleBlogPost function from triggering
+            e.stopPropagation();
+            const link = window.location.origin + window.location.pathname + '#' + blogId;
+            navigator.clipboard.writeText(link).then(function() {
+                alert('Link copied to clipboard:\n' + link);
+            }, function() {
+                alert('Failed to copy link.');
+            });
         }
+        
+        // On page load, check if a fragment exists and open that blog post automatically
+        document.addEventListener('DOMContentLoaded', function () {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                const targetArticle = document.getElementById(hash);
+                if (targetArticle) {
+                    const blogBody = targetArticle.querySelector('.blog-body');
+                    if (blogBody && (blogBody.style.display === "none" || blogBody.style.display === "")) {
+                        blogBody.style.display = "block";
+                        const toggleIcon = targetArticle.querySelector('.blog-header .toggle-icon');
+                        if (toggleIcon) toggleIcon.textContent = "-";
+                        targetArticle.scrollIntoView({ behavior: "smooth" });
+                    }
+                }
+            }
+        });
+        
 
         function updateCountdown() {
             const releaseDate = new Date("2025-03-01T00:00:00").getTime();
@@ -1279,17 +1309,21 @@ section h2 i {
         </div>
     </div>
     
-    <section id="blog">
+   <section id="blog">
     <h2><i class="ri-pencil-line"></i> Blog</h2>
     <div class="dropdown">
         <h3 onclick="toggleDropdown('blog-posts')"><i class="ri-article-line"></i> View Latest Posts</h3>
         <div class="dropdown-content" id="blog-posts">
             <div class="blog-container">
-                <article class="blog-post">
+                <!-- Blog Post 1 -->
+                <article class="blog-post" id="weekly-dev-log-2">
                     <div class="blog-header" onclick="toggleBlogPost(this)">
                         <i class="ri-megaphone-line blog-icon"></i>
                         <h3>Weekly Dev Log #2</h3>
                         <span class="toggle-icon" style="margin-left:auto;">+</span>
+                        <span class="share-button" onclick="copyBlogLink(event, 'weekly-dev-log-2')" title="Share this post">
+                            <i class="ri-share-line"></i>
+                        </span>
                     </div>
                     <div class="blog-body" style="display: none;">
                         <div class="blog-meta">
@@ -1340,11 +1374,15 @@ section h2 i {
                     </div>
                 </article>
                 
-                <article class="blog-post">
+                <!-- Blog Post 2 -->
+                <article class="blog-post" id="weekly-dev-log-1">
                     <div class="blog-header" onclick="toggleBlogPost(this)">
                         <i class="ri-megaphone-line blog-icon"></i>
                         <h3>Weekly Dev Log #1</h3>
                         <span class="toggle-icon" style="margin-left:auto;">+</span>
+                        <span class="share-button" onclick="copyBlogLink(event, 'weekly-dev-log-1')" title="Share this post">
+                            <i class="ri-share-line"></i>
+                        </span>
                     </div>
                     <div class="blog-body" style="display: none;">
                         <div class="blog-meta">
@@ -1397,6 +1435,7 @@ section h2 i {
         </div>
     </div>
 </section>
+
     <!--
     <section>
         <h2><i class="ri-movie-2-line"></i> App Trailer</h2>
