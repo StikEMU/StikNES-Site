@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StikNES Blog</title>
+  <!-- Remix Icon CDN for share icon -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+  <style>
+    /* Basic reset */
+    body, h1, h2, h3, p, article, header, footer, div {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    /* Global styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: #1e293b;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+    }
+    header h1 {
+      font-size: 2.5em;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+    /* Blog post styles */
+    .blog-post {
+      background: #fff;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .blog-header {
+      background: #f1f1f1;
+      padding: 15px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .blog-header h3 {
+      margin: 0;
+      font-size: 1.5em;
+    }
+    .toggle-icon {
+      font-size: 1.5em;
+      margin-left: auto;
+    }
+    .share-button {
+      cursor: pointer;
+      margin-left: 10px;
+      font-size: 1.2em;
+      color: #007BFF;
+    }
+    .blog-body {
+      display: none;
+      padding: 15px;
+    }
+    .blog-meta {
+      font-size: 0.9em;
+      color: #888;
+      margin-bottom: 10px;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.8em;
+      color: #aaa;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>StikNES Blog</h1>
+  </header>
+  <div class="container">
+    <!-- Blog Post 1 -->
+    <article class="blog-post" id="weekly-dev-log-2">
+      <div class="blog-header" onclick="toggleBlogPost(this)">
+        <h3>Weekly Dev Log #2</h3>
+        <span class="toggle-icon">+</span>
+        <span class="share-button" onclick="copyBlogLink(event, 'weekly-dev-log-2')" title="Share this post">
+          <i class="ri-share-line"></i>
+        </span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-meta">March 03, 2025 | by Stephen</div>
+        <div class="blog-content">
+          <p>Hey everyone! Here's a quick update on what I've been working on. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros eget tellus tristique bibendum.</p>
+          <p>[Additional content for Weekly Dev Log #2]</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Blog Post 2 -->
+    <article class="blog-post" id="weekly-dev-log-1">
+      <div class="blog-header" onclick="toggleBlogPost(this)">
+        <h3>Weekly Dev Log #1</h3>
+        <span class="toggle-icon">+</span>
+        <span class="share-button" onclick="copyBlogLink(event, 'weekly-dev-log-1')" title="Share this post">
+          <i class="ri-share-line"></i>
+        </span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-meta">February 23, 2025 | by Stephen</div>
+        <div class="blog-content">
+          <p>Hey everyone! I'm excited to announce that I'll be moving back to weekly dev logs. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p>[Additional content for Weekly Dev Log #1]</p>
+        </div>
+      </div>
+    </article>
+  </div>
+  <footer>
+    <p>© 2025 StikNES Blog. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Toggle blog post collapse/expand
+    function toggleBlogPost(headerElement) {
+      const blogBody = headerElement.parentNode.querySelector('.blog-body');
+      const icon = headerElement.querySelector('.toggle-icon');
+      if (blogBody.style.display === "none" || blogBody.style.display === "") {
+        blogBody.style.display = "block";
+        icon.textContent = "-";
+      } else {
+        blogBody.style.display = "none";
+        icon.textContent = "+";
+      }
+    }
+
+    // Copy shareable blog link to clipboard
+    function copyBlogLink(e, blogId) {
+      // Prevent the blog post toggle from triggering
+      e.stopPropagation();
+      const link = window.location.origin + window.location.pathname + '#' + blogId;
+      navigator.clipboard.writeText(link).then(function() {
+        alert('Link copied to clipboard:\n' + link);
+      }, function() {
+        alert('Failed to copy link.');
+      });
+    }
+
+    // Automatically open a blog post if the URL fragment matches its id
+    document.addEventListener('DOMContentLoaded', function () {
+      const hash = window.location.hash.substring(1);
+      if (hash) {
+        const targetArticle = document.getElementById(hash);
+        if (targetArticle) {
+          const blogBody = targetArticle.querySelector('.blog-body');
+          if (blogBody && (blogBody.style.display === "none" || blogBody.style.display === "")) {
+            blogBody.style.display = "block";
+            const toggleIcon = targetArticle.querySelector('.blog-header .toggle-icon');
+            if (toggleIcon) toggleIcon.textContent = "-";
+            targetArticle.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
